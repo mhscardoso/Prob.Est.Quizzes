@@ -1,0 +1,6 @@
+Quiz*/*.aux
+Quiz*/*.dvi
+Quiz*/*.fdb_latexmk
+Quiz*/*.fls
+Quiz*/*.log
+Quiz*/*.synctex.gz

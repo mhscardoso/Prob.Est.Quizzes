@@ -1,0 +1,196 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=0.9in]{geometry}
+
+\title{Quiz 1 - Estatística e Métodos Probabilísticos}
+\author{Matheus Henrique Sant`Anna Cardoso\\
+        DRE: 121073530        
+}
+\date{Setembro de 2022}
+
+\begin{document}
+    
+\maketitle
+
+\section*{Questão 1}
+
+\subsection*{(a)}
+Podemos organizar cada evento como uma tupla da seguinte forma:
+\[(f_{a}, f_{b}, f_{c}, f_{d})\]
+em que $a, b, c$ e $d$ são números de 1 até 6.
+O espaço amostra $(\Omega)$ será dado pela união de todas os eventos. Assim, teremos um número finito de opções, pois, para cada elemento da tupla, teremos seis opções de forma que o total é dado por $6^4$. Nisso, podemos contar todos os eventos sendo o $\Omega$ discreto e finito.
+
+\subsection*{(b)}
+Aqui, buscamos as somas possíveis ao se lançar quatro dados. Partindo do mínimo, temos o cenário em que a face 1 caiu por quatro vezes (soma 4): $(f_{1}, f_{1}, f_{1}, f_{1})$. Já para o caso máximo, o cenário em que o lado 6 cai por quatro vezes (soma 24): $(f_{6}, f_{6}, f_{6}, f_{6})$. Assim, o $\Omega$ é o conjunto das somas possíveis qua são os naturais de 4 até 24: $\Omega = \{4, 5, 6, \cdots, 24\}$. Portanto é discreto e finito.
+
+\subsection*{(c)}
+A face 6 - como qualquer outra face - pode cair zero, uma, duas, três e quatro vezes. Nisso, é o conjunto dos inteiros de zero à quatro. $\Omega = \{0, 1, 2, 3, 4\}$. Portanto é discreto e finito.
+
+\subsection*{(d)}
+Podemos organizar isso em forma de tuplas de seis elementos $q_{i}$ em que $i$ é o número da face e $q$ é a quantidade de vezes que a face caiu. Dessa forma, A soma de todos os $q's$ deve ser quatro. Como são números inteiros, teremos um $\Omega$ discreto e finito.
+
+\subsection*{(e)}
+A quantidade de carros sempre será contável, portanto é discreto. Porém, uma moto pode aparecer na primeira vez que se passa um veículo, ou nunca. Portanto é infinito. O $\Omega$ é discreto e infinito.
+
+\subsection*{(f)}
+Aqui, procuramos os pares ordanados $(x, y)$ que estejam dentro do círculo de raio unitário.
+\[\Omega = \{(x, y) \in \Re^2 \mid x^2 + y^2 \leq 1\}\]
+Nisso, temos um número infinito de pares ordenados que não são contáveis. Assim, o $\Omega$ é contínuo e infinito.
+
+\subsection*{(g)}
+Aqui, como temos um círculo de raio unitário, sua distância ao centro estará no intervalo entre 0 e 1. $\Omega = [0, 1]$. Nisso, o $\Omega$ é contínuo e infinito.
+
+\subsection*{(h)}
+Aqui, podemos organizar de forma que tenhamos tuplas com dois elementos. O primeiro será um número inteiro de o até 7 e o segundo será um valor em centímetros. Portanto $\Omega$ será contínuo, pelos valores da precipitação. E será infinito pelos valores das precipitações.
+
+
+\section*{Questão 2}
+O espaço amostra $(\Omega)$ são todas as combinações de quatro bolas que se pode obter do baú. Assim, sendo $X_{i}$ a bola de cor $X$ retirada na posição $i$ ($X$ é $A$ (azul) ou $V$ (vermelho)), temos:
+\vspace{\baselineskip}
+\[\Omega = \{(A_{1}, A_{2}, A_{3}, V_{4}), 
+(A_{1}, A_{2}, V_{3}, V_{4}),
+(A_{1}, A_{2}, V_{3}, A_{4}),
+(V_{1}, A_{2}, A_{3}, V_{4}),
+(A_{1}, V_{2}, A_{3}, V_{4}),
+\cdots
+\}\]
+O $\sigma$-álgebra pode ser o conjunto com todas as combinações dos elementos de $\Omega$.\\
+Para a probabilidade, podemos pensar em calcular todas as possíveis (com a quarta podendo ser vermelha) dado que a quarta é vermelha. Nisso, teremos:
+\vspace{\baselineskip}\\
+$P(A_{1}, A_{2}, A_{3}/V_{4}) = \frac{P(A_{1} \cap A_{2} \cap A_{3} \cap V_{4})}{P(V_{4})} = \frac{(3/6) (2/5) (1/4) (1)}{P(V_{4})} = \frac{1/20}{P(V_{4})}$
+\vspace{\baselineskip}\\
+$P(A_{1}, A_{2}, V_{3}/V_{4}) = \frac{P(A_{1} \cap A_{2} \cap V_{3} \cap V_{4})}{P(V_{4})} = \frac{(3/6) (2/5) (3/4) (2/3)}{P(V_{4})} = \frac{2/20}{P(V_{4})}$
+\vspace{\baselineskip}\\
+$P(A_{1}, V_{2}, A_{3}/V_{4}) = \frac{P(A_{1} \cap V_{2} \cap A_{3} \cap V_{4})}{P(V_{4})} = \frac{(3/6) (3/5) (2/4) (2/3)}{P(V_{4})} = \frac{2/20}{P(V_{4})}$
+\vspace{\baselineskip}\\
+$P(A_{1}, V_{2}, V_{3}/V_{4}) = \frac{P(A_{1} \cap V_{2} \cap V_{3} \cap V_{4})}{P(V_{4})} = \frac{(3/6) (3/5) (2/4) (1/3)}{P(V_{4})} = \frac{1/20}{P(V_{4})}$
+\vspace{\baselineskip}\\
+$P(V_{1}, A_{2}, A_{3}/V_{4}) = \frac{P(V_{1} \cap A_{2} \cap A_{3} \cap V_{4})}{P(V_{4})} = \frac{(3/6) (3/5) (2/4) (2/3)}{P(V_{4})} = \frac{2/20}{P(V_{4})}$
+\vspace{\baselineskip}\\
+$P(V_{1}, A_{2}, V_{3}/V_{4}) = \frac{P(V_{1} \cap A_{2} \cap V_{3} \cap V_{4})}{P(V_{4})} = \frac{(3/6) (3/5) (2/4) (1/3)}{P(V_{4})} = \frac{1/20}{P(V_{4})}$
+\vspace{\baselineskip}\\
+$P(V_{1}, V_{2}, A_{3}/V_{4}) = \frac{P(V_{1} \cap V_{2} \cap A_{3} \cap V_{4})}{P(V_{4})} = \frac{(3/6) (2/5) (3/4) (1/3)}{P(V_{4})} = \frac{1/20}{P(V_{4})}$
+\vspace{\baselineskip}\\
+A soma de todas as probabilidades deve ser 1, portanto:
+$\frac{10/20}{P(V_{4})} = 1$
+\vspace{\baselineskip}\\
+Finalmente, temos que $P(V_{4}) = \frac{10}{20} = \frac{1}{2}$ ou $50\%$.
+
+\section*{Questão 3}
+Para este experimento, o $\Omega$ será o conjunto dos pontos os quais estejam dentro do círculo de área 10.
+\[\Omega = \{(x, y) \in \Re^2 \mid x^2 + y^2 \leq 10\}\] para $x$ e $y$ em kilômetros.
+A $\sigma$-álgebra deste evento é a combinação de todos os pontos existentes no $\Omega$.
+Já a probabilidade de que a chamada seja realizada numa área de 2Km é a área quista: $2^2\pi$ dividido pela área que contempla o $\Omega$, que é $10^2\pi$. Isto nos dá $\frac{4\pi}{100\pi} = 4\%$.
+
+\section*{Questão 4}
+Na questão, foram dados:
+
+\[
+    P(pescar / mar) = 0.8 \hspace*{10px}
+    P(pescar / rio) = 0.4 \hspace*{10px}
+    P(pescar / lago) = 0.6
+\]
+Seja $n_{p}$ o símbolo que representa não pescar, teríamos os seguintes dados:
+\[
+    P(n_{p} / mar) = 0.2 \hspace*{10px}
+    P(n_{p} / rio) = 0.6 \hspace*{10px}
+    P(n_{p} / lago) = 0.4
+\]
+Sabemos que $ P(A / B) = \frac{P(A \cap B)}{P(B)} $. Assim, teremos:
+\[
+    P(n_{p} / mar) = 0.2 = \frac{P(n_{p} \cap mar)}{P(mar)} \hspace*{10px}
+    P(n_{p} / rio) = 0.6 = \frac{P(n_{p} \cap rio)}{P(rio)} \hspace*{10px}
+    P(n_{p} / lago) = 0.4 = \frac{P(n_{p} \cap lago)}{P(lago)}
+\]
+Assim, temos, para todos os casos que:
+\vspace{\baselineskip}\\
+$P(mar / n_{p}) \cdot P(n_{p}) = P(n_{p} \cap mar) = P(mar) \cdot 0.2 = \frac{1}{2} \cdot 0.2 = 0.1 \rightarrow P(mar / n_{p}) = \frac{0.1}{P(n_{p})}$
+\vspace{\baselineskip}\\
+$P(rio / n_{p}) \cdot P(n_{p}) = P(n_{p} \cap rio) = P(rio) \cdot 0.6 = \frac{1}{4} \cdot 0.6 = 0.15 \rightarrow P(rio / n_{p}) = \frac{0.15}{P(n_{p})}$
+\vspace{\baselineskip}\\
+$P(lago / n_{p}) \cdot P(n_{p}) = P(n_{p} \cap lago) = P(lago) \cdot 0.4 = \frac{1}{4} \cdot 0.4 = 0.1 \rightarrow P(lago / n_{p}) = \frac{0.1}{P(n_{p})}$
+\vspace{\baselineskip}\\
+Sabemos, também que $P(mar / n_{p}) + P(rio / n_{p}) + P(lago / n_{p}) = 1$, Portanto, $\frac{0.35}{P(n_{p})} = 1 \rightarrow P(n_{p}) = 0.35$
+\vspace{\baselineskip}\\
+Já vimos que para não ter havido pesca, é mais provável que ele tenha ido para o rio, pois $P(n_{p} / rio)$ é a maior. Calculando temos:
+\vspace{\baselineskip}\\
+$P(n_{p} / rio) = 0.15 / P(n_{p}) = \frac{3}{7}$
+
+\section*{Questão 5}
+Anotando os valores, temos
+\vspace{\baselineskip}\\
+$P(A) = 2/5$
+\vspace{\baselineskip}\\
+$P(B) = 5/12$
+\vspace{\baselineskip}\\
+$P(C) = 1/2$
+\vspace{\baselineskip}\\
+$P(A \cap B) = 2/15$
+\vspace{\baselineskip}\\
+$P(A \cap C) = 17/60$
+\vspace{\baselineskip}\\
+$P(C \cap B) = 1/4$
+\vspace{\baselineskip}\\
+$P(A \cap B \cap C) = 1/12$
+
+\subsection*{(a)}
+Sabemos que para dois eventos $X$ e $Y$ serem independentes $P(X \cap Y) = P(X) \cdot P(Y)$. Calculando, temos:
+\vspace{\baselineskip}\\
+$P(A) \cdot P(B) = 1 / 6$
+\vspace{\baselineskip}\\
+$P(A) \cdot P(C) = 1 / 5$ 
+\vspace{\baselineskip}\\
+$P(C) \cdot P(B) = 5 / 24$
+\vspace{\baselineskip}\\
+Veja que difere dos valores das interseções, sendo, portanto, eventos dependentes.
+
+\subsection*{(b)}
+Sendo a interseção dos três eventos igual a $1 / 12$, a chance de o cliente não comprar nenhum dos ítens é $1 - 1/12 = 11/12$
+
+\subsection*{(c)}
+Queremos aqui $P(A / B)$ que se dá por $\frac{P(A \cap B)}{P(B)} = \frac{2 / 15}{5 / 12} = 8 / 25$
+
+\subsection*{(d)}
+Queremos aqui $P((A \cap B) / C)$ que se dá por $\frac{P(A \cap B \cap C)}{P(C)} = \frac{1 / 12}{1 / 2} = 1/6$
+
+
+\section*{Questão 6}
+
+\subsection*{(a)}
+Podemos calcular o complementar de cada revisor e fazer o produto. Ao final, teremos a probabilidade de nenhum dos três perceba erro. Perceba que, podemos fazer isso, pois as avaliações de erro de cada revisor são eventos independentes.
+\vspace{\baselineskip}\\
+$P(A^c \cap B^c \cap C^c) = (1 - 0.92) \cdot (1 - 0.85) \cdot (1 - 0.95) = 1 - P(pelo\;menos\;um)$
+\vspace{\baselineskip}\\
+$P(pelo\;menos\;um) = 0.9994$
+
+\subsection*{(b)}
+Será a soma de todos os casos em que dois revisam e um não:
+\vspace{\baselineskip}\\
+$P(x) = 0.92 \cdot 0.85 \cdot (1 - 0.95) + 0.92 \cdot (1 - 0.85) \cdot 0.95 + (1 - 0.92) \cdot 0.85 \cdot 0.95 = 0.2348$
+
+\section*{Questão 7}
+No total, existem $6 \cdot 6 = 36$ opções para as somas, de forma que, para a soma $7$, teremos $6$ opções. Nisso, a probalibidade de o jogador que inicia o jogo ganhar na primeira rodada é $\frac{6}{36} = \frac{1}{6}$ sendo seu complementar (chance de não ser sete a soma) é $\frac{5}{6}$.
+\vspace{\baselineskip}\\
+Vencer na primeira rodada: $\frac{1}{6}$
+\vspace{\baselineskip}\\
+Vencer na segunda rodada: $\biggl(\frac{5}{6} \frac{5}{6}\biggr) \frac{1}{6}$
+\vspace{\baselineskip}\\
+Vencer na terceira rodada: $\biggl(\frac{5}{6} \frac{5}{6}\biggr) \biggl(\frac{5}{6} \frac{5}{6}\biggr) \frac{1}{6}$
+\vspace{\baselineskip}\\
+$\cdots$ e assim por diante.
+\vspace{\baselineskip}\\
+De forma que, ao final, somando todas as possibilidades, tenhamos uma P.G. infinita de razão $\frac{25}{36}$ que é calculada por $\frac{1/6}{1 - \frac{25}{36}} = \frac{6}{11}$
+\vspace{\baselineskip}\\
+Na mesma lógica anterior, teremos um múltiplo de três jogadas que não podem somar sete, seguida de uma que isto ocorre. Sendo assim:
+\vspace{\baselineskip}\\
+Vencer na primeira rodada: $\frac{1}{6}$
+\vspace{\baselineskip}\\
+Vencer na segunda rodada: $\biggl(\frac{5}{6} \frac{5}{6} \frac{5}{6}\biggr) \frac{1}{6}$
+\vspace{\baselineskip}\\
+Vencer na terceira rodada: $\biggl(\frac{5}{6} \frac{5}{6} \frac{5}{6}\biggr) \biggl(\frac{5}{6} \frac{5}{6} \frac{5}{6}\biggr) \frac{1}{6}$
+\vspace{\baselineskip}\\
+$\cdots$ e assim por diante.
+\vspace{\baselineskip}\\
+De forma que continuará sendo uma soma de P.G., porém, com razão $\frac{125}{216}$, que se dará por $\frac{1/6}{1 - \frac{125}{216}} = \frac{36}{91}$
+
+\end{document}
