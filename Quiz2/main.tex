@@ -1,9 +1,13 @@
 \documentclass[12pt,a4paper]{article}
+\usepackage{setspace}
 \usepackage[utf8]{inputenc}
 \usepackage[portuguese]{babel}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{pgfplots}
+\setstretch{1.25}
+\pgfplotsset{width=10cm,compat=1.9}
 
 \author{Matheus Henrique SantAnna Cardoso}
 \title{Quiz 2 - Estatística e Métodos Probabilísticos}
@@ -13,10 +17,56 @@
 
 \maketitle
 
+\section{Questão 1}
+\textbf{(a)} Vamos iniciar pensando no espaço amostra dos dois casos:
+
+O $\Omega$ nesse caso será todas as possibilidades de soma de duas faces de dois dados, logo:
+\[\Omega = \{2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12\}\]
+que são todas as possibilidades de soma.
+
+A $\sigma$-álgebra mínima para a classe \{A, B\} será aquela que contempla os dois casos, devendo ter um caso com a união de todos os casos cuja soma é um número primo (A) e um subconjunto com o valor 7 (B).
+
+O que deve ter no conjunto: $\emptyset, \Omega, \{7\}$ e $\{2, 3, 5, 7, 11\}$. Devemos adicionar, portanto, os complementares dos dois últimos conjuntos.
+
+$\sigma$-álgebra mínima $= \{\emptyset, \Omega, \{7\}, \{2, 3, 4, 5, 6, 8, 9, 10, 11, 12\}, \{2, 3, 5, 7, 11\}, \{4, 6, 8, 9, 10, 12\}\}$
+
+\vspace{\baselineskip}
+
+\noindent \textbf{(b)} Os casos mostrados no $\Omega$ e na $\sigma$-álgebra não são equiprováveis. Veja que existem 36 ($6 \cdot 6$) possibilidades para a queda dos dados.
+
+Para o caso A, devemos calcular quantas possibilidades existem para cada soma cujo resultado é primo. Seja $S_{i}$ o número de possibilidades de cair a soma $i$.
 \begin{align*}
-	x + y &= 3 & a + b &= 7\\
-	x - y &= 1 & a - b &= 3\\
-	x &= 2 & a &= 5\\
+	S_{2}  &= 1\\
+	S_{3}  &= 2\\
+	S_{5}  &= 4\\
+	S_{7}  &= 6\\
+	S_{11} &= 2\\
 \end{align*}
+Podemos, então, dizer que a soma de todos os casos primos será $S_{primo} = 1 + 2 + 4 + 6 + 2 = 15$.
+Dessa forma, a probabilidade da soma ser ímpar é $P(A) = \frac{15}{36} = \frac{5}{12}$.
+
+Já a probabilidade $P(B)$ de a soma ser 7 é $\frac{6}{36}$, sendo todas as possibilidades de a soma ser 7 dividido por todos os casos. Assim $P(B) = \frac{1}{6}$.
+
+Agora, devemos calcular $P(A/B)$, que é a probalilidade de a soma ser primo dado que vale 7. Ora, se já sabemos que vale 7, a soma é um número primo. Portanto, $P(A/B) = 1$, pois é certo que será primo.
+
+Finalmente, devemos calcular $P(B/A)$, que é a probalilidade de ser 7 dado que é primo. Nisso, podemos utilizar o resultado anterior para fazer:
+\begin{align*}
+	P(B/A) &= \frac{P(B \cap A)}{P(A)}\\
+	P(A/B) &= \frac{P(B \cap A)}{P(B)} = 1 \,\,\text{do último ítem}\\
+	P(B \cap A) &= P(B)\\
+	P(B/A) &= \frac{P(B)}{P(A)}\\
+	P(B/A) &= \frac{1 / 6}{5 / 12} = \frac{2}{5}
+\end{align*}
+Assim, chegamos ao resultado que $P(B/A) = \frac{2}{5}$
+
+\vspace{\baselineskip}
+
+\noindent \textbf{(c)} Para sabermos se não são mutuamente exclusivos, basta termos um evento que é comum aos dois. Nisso, é fácil ver que quando ocorre o evento cuja soma é 7, ambos os casos (A e B) são satisfeitos, pois é primo (A) e vale 7 (B). Dessa forma, nota-se que os eventos não são mutuamente exclusivos.
+
+Além disso, pensando logicamente, percebemos que os eventos não são independentes. Perceba que se o número não for primo, necessariamente não poderá ser 7. Ao contrário, caso a soma seja 7, necessariamente será primo. Matematicamente, fazemos:
+\[P(A) = \frac{5}{12}\]
+\[P(B) = \frac{1}{6}\]
+\[P(A \cap B) = \frac{1}{6}\]
+Veja, finalmente, que $P(A) \cdot P(B) \neq P(A \cap B)$. Mostrando que os eventos não são independentes.
 
 \end{document}

@@ -4,3 +4,4 @@ Quiz*/*.fdb_latexmk
 Quiz*/*.fls
 Quiz*/*.log
 Quiz*/*.synctex.gz
+Quiz*/Quiz*-enunciados.pdf
