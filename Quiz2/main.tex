@@ -1,4 +1,4 @@
-\documentclass[12pt,a4paper]{article}
+\documentclass[11pt,a4paper]{article}
 \usepackage{setspace}
 \usepackage[utf8]{inputenc}
 \usepackage[portuguese]{babel}
@@ -7,9 +7,13 @@
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
 \usepackage{pgfplots}
 \setstretch{1.25}
+\setlength{\parindent}{0pt}
 \pgfplotsset{width=10cm,compat=1.9}
 
-\author{Matheus Henrique SantAnna Cardoso}
+\author{
+	Matheus Henrique SantAnna Cardoso\\
+	DRE: 121073530
+}
 \title{Quiz 2 - Estatística e Métodos Probabilísticos}
 \date{Setembro de 2022}
 
@@ -17,7 +21,7 @@
 
 \maketitle
 
-\section{Questão 1}
+{\large{\textbf{Questão 1}}}\\
 \textbf{(a)} Vamos iniciar pensando no espaço amostra dos dois casos:
 
 O $\Omega$ nesse caso será todas as possibilidades de soma de duas faces de dois dados, logo:
@@ -26,9 +30,9 @@ que são todas as possibilidades de soma.
 
 A $\sigma$-álgebra mínima para a classe \{A, B\} será aquela que contempla os dois casos, devendo ter um caso com a união de todos os casos cuja soma é um número primo (A) e um subconjunto com o valor 7 (B).
 
-O que deve ter no conjunto: $\emptyset, \Omega, \{7\}$ e $\{2, 3, 5, 7, 11\}$. Devemos adicionar, portanto, os complementares dos dois últimos conjuntos.
+O que deve ter no conjunto: $\emptyset, \Omega, \{7\},\{2, 3, 5, 7, 11\}, \{2, 3, 5, 11\}$. Devemos adicionar, portanto, os complementares dos dois últimos conjuntos.
 
-$\sigma$-álgebra mínima $= \{\emptyset, \Omega, \{7\}, \{2, 3, 4, 5, 6, 8, 9, 10, 11, 12\}, \{2, 3, 5, 7, 11\}, \{4, 6, 8, 9, 10, 12\}\}$
+\{$\emptyset, \Omega$, \{7\}, \{2, 3, 4, 5, 6, 8, 9, 10, 11, 12\}, \{2, 3, 5, 7, 11\}, \{4, 6, 8, 9, 10, 12\}\}, \{2, 3, 5, 11\}, \{4, 6, 7, 8, 9, 10, 12\}\}
 
 \vspace{\baselineskip}
 
@@ -40,7 +44,7 @@ Para o caso A, devemos calcular quantas possibilidades existem para cada soma cu
 	S_{3}  &= 2\\
 	S_{5}  &= 4\\
 	S_{7}  &= 6\\
-	S_{11} &= 2\\
+	S_{11} &= 2
 \end{align*}
 Podemos, então, dizer que a soma de todos os casos primos será $S_{primo} = 1 + 2 + 4 + 6 + 2 = 15$.
 Dessa forma, a probabilidade da soma ser ímpar é $P(A) = \frac{15}{36} = \frac{5}{12}$.
@@ -68,5 +72,118 @@ Além disso, pensando logicamente, percebemos que os eventos não são independe
 \[P(B) = \frac{1}{6}\]
 \[P(A \cap B) = \frac{1}{6}\]
 Veja, finalmente, que $P(A) \cdot P(B) \neq P(A \cap B)$. Mostrando que os eventos não são independentes.
+
+\newpage
+
+{\large{\textbf{Questão 2}}}
+
+\newpage
+
+{\large{\textbf{Questão 3}}}
+
+\vspace{\baselineskip}
+
+\begin{tikzpicture}
+\draw[->] (-5.5, 0) -- (5.5, 0) node[below] {$V$};
+\draw (-5, -0.1) -- (-5, 0.1) node[below] {$-5$};
+\draw (-4, -0.1) -- (-4, 0.1) node[below] {$-4$};
+\draw (-3, -0.1) -- (-3, 0.1) node[below] {$-3$};
+\draw (-2, -0.1) -- (-2, 0.1) node[below] {$-2$};
+\draw (-1, -0.1) -- (-1, 0.1) node[below] {$-1$};
+\draw (0, -0.1) -- (0, 0.1) node[below] {$\ 0$};
+\draw (1, -0.1) -- (1, 0.1) node[below] {$\ 1$};
+\draw (2, -0.1) -- (2, 0.1) node[below] {$\ 2$};
+\draw (3, -0.1) -- (3, 0.1) node[below] {$\ 3$};
+\draw (4, -0.1) -- (4, 0.1) node[below] {$\ 4$};
+\draw (5, -0.1) -- (5, 0.1) node[below] {$\ 5$};
+\end{tikzpicture}
+
+\vspace{\baselineskip}
+Acima, o espaço amostra do problema, que é o intervalo $[-5, 5]$. Com isso em mente, sabemos que para um erro de $0.2$, é preciso que a voltagem esteja em u intervalo do tipo $X \pm 0.2$, sendo $X$ um número inteiro entre $-4$ e $4$. Para os casos em que $X = \pm 5$, a variação será de $[-5, -4.8]$ (para o caso negativo) e $[4.8, 5]$ (para o caso positivo).
+
+No primeiro caso, temos nove casos com intervalos de $0.4$. No segundo, dois casos com um intervalo de $0.2$. Ao final, temos:
+
+Intervalos válidos: $9 \cdot 0.4 + 2 \cdot 0.2 = 3.6 + 0.4 = 4$.
+
+O tamanho total do intervalo é: $5 - (-5) = 10$.
+
+A probabilidade é de $\frac{4}{10} = 0.4$. Sendo de 40\% a probabilidade de que seja apontado um erro inferior à $0.2$.
+
+\newpage
+
+{\large{\textbf{Questão 4}}}
+
+(a) Aqui, podemos utilizar dois eventos. O primeiro, conta o número de homens dentre os filhos de um casal aleatório (com $\Omega_{1}$ sendo  o espaço amostra), o segundo, o número de mulheres ($\Omega_{2}$).
+
+Temos que:
+
+\[\Omega_{1} = \Omega_{2} = \{0, 1, 2\}\]
+
+com o mesmo $\sigma$-álgebra, inclusive.
+
+\vspace{\baselineskip}
+
+\begin{tikzpicture} 
+\begin{axis}
+% Primeira fileira x
+\addplot3 coordinates 
+{
+	(0,0,0)
+	(0, 0, 0.33)
+};
+
+\addplot3 coordinates 
+{
+	(1,0,0)
+	(1, 0, 0.16)
+};
+
+\addplot3 coordinates 
+{
+	(2,0,0)
+	(2, 0, 0.083)
+};
+
+% Segunda fileira
+\addplot3 coordinates 
+{
+	(0,1,0)
+	(0, 1, 0.16)
+};
+
+\addplot3 coordinates 
+{
+	(1,1,0)
+	(1, 1, 0.16)
+};
+
+\addplot3 coordinates 
+{
+	(2,1,0)
+};
+
+% Terceira fileira
+\addplot3 coordinates 
+{
+	(0,2,0)
+	(0, 2, 0.083)
+};
+
+\addplot3 coordinates 
+{
+	(1,2,0)
+};
+
+\addplot3 coordinates 
+{
+	(2,2,0)
+};
+\end{axis}
+\end{tikzpicture}
+
+\vspace{\baselineskip}
+\vspace{\baselineskip}
+
+(b) Nota-se que os eventos não são independentes. De início, podemos pensar que caso um casal tenha dois filhos homens, por exemplo, não poderá ter filhas mulheres, ou seja, no final, um evento influencia o outro.
 
 \end{document}
