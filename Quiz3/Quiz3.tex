@@ -1,0 +1,245 @@
+\documentclass[a5paper]{report}
+
+\usepackage[utf8]{inputenc}
+\usepackage[brazilian]{babel}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{tikz, pgfplots}
+\usepackage{setspace}
+
+\newgeometry{
+	margin=0.7in
+}
+
+\setstretch{1.25}
+\setlength{\parindent}{0pt}
+\pgfplotsset{compat=1.18}
+
+\title{Estatística e Modelos Probabilísticos - Quiz 3}
+\author{
+	Matheus Henrique Sant'Anna Cardoso\\
+	DRE: 121073530
+}
+\date{Novembro de 2022}
+
+
+\begin{document}
+	
+\maketitle \newpage
+
+\section*{Questão 1}
+Considere o lançamento de dois dados e a experiência cujo resultado consiste na soma do número de pontos da face superior dos dados. Resolva:
+
+\textbf{a.}
+Modele com uma v.a. esta soma.
+
+
+\textbf{b.}
+Encontre e esboce sua distribuição de probabilidade.
+
+
+\textbf{c.}
+Encontre e esboce a Função Distribuição de Probabilidades (F.D.P.)
+
+
+\textbf{d.}
+Encontre e esboce a função densidade de probabilidades (f.d.p.)
+
+
+\textbf{e.}
+Calcule a probabilidade de obter um valor no intervalo $[7, 9]$.
+
+% -------------------------------------------------------------------------------
+
+\section*{Questão 2}
+Seja x uma variável aleatória discreta com função de probabilidade dada por
+
+\[P(x=X) = \frac{c}{4^x}, X = 0, 1, \cdots\]
+
+Obtenha:
+
+\textbf{a.} O valor de $c$.
+
+\textbf{b.} A probabilidade de $x$ ser um número par.
+
+% -------------------------------------------------------------------------------
+
+\section*{Questão 3}
+Seja $x$ uma variável aleatória com função densidade de probabilidade
+
+\begin{equation*}
+	p_x(x) =
+	\begin{cases}
+		c\left(1 - x^2 \right) ; & -1 < x < 1 \\
+		0 \hspace{1.4cm}; & \text{caso contrário}
+	\end{cases}       
+\end{equation*}
+
+\textbf{a.} Qual o valor de $c$?
+
+\textbf{b.} qual é a Função Distribuição Cumulativa de $x$?
+
+% -------------------------------------------------------------------------------
+
+\section*{Questão 4}
+Quinze pessoas portadoras de determinada doença são selecionadas para se submeter
+a um tratamento. Este tratamento é eficaz na cura da doença em 80\% dos casos.
+Suponha que os indivíduos submetidos ao tratamento se curam (ou não) independentes
+uns do outros.
+
+\textbf{a.} Modelar com uma v.a. o número de curados x dentre os 15 pacientes submetidos
+ao tratamento.
+
+
+\textbf{b.}
+Qual a distribuição de $x$?
+
+
+\textbf{c.}
+Qual a probabilidade de que os 15 pacientes sejam curados?
+
+
+\textbf{d.}
+Qual a probabilidade de que pelo menos dois não sejam curados?
+
+% -------------------------------------------------------------------------------
+
+\section*{Questão 5}
+Seja $x$ o número de ensaios necessários para obter o primeiro sucesso quando se realiza
+uma sequência de ensaios de Bernoulli independentes com probabilidade de sucesso
+$p$.
+
+\textbf{a.} Deduza o modelo de distribuição de probabilidades (conhecida como geométrica).
+
+
+\textbf{b.} Mostre que a somatória das probabilidades da distribuição geométrica é igual a 1.
+
+% -------------------------------------------------------------------------------
+
+\section*{Questão 6}
+Um amperímetro digital tem uma escala que vai de -5 a +5 Ampère e tem a precisão de apenas um dígito, isto é, indica valores inteiros de corrente. Assim, ao se fazer uma medida, o aparelho aproxima o valor real da corrente para o valor inteiro mais próximo. Determine a probabilidade de que o erro na medida seja superior a $0.2$ Ampère. Considere que a função densidade de probabilidade da
+corrente na entrada do amperímetro seja a mostrada na figura 4.
+
+\begin{figure}[ht]
+	\begin{center}
+		\begin{tikzpicture}
+			\draw[->] (-3, 0) -- (4, 0);
+			\draw[->] (0, 0) -- (0, 3.5);
+			\draw (-2.5, 0) -- (0, 2.5);
+			\draw (0, 2.5) -- (2.5, 0);
+			\draw (-2.5, -0.2) -- (-2.5, 0);
+			\draw (0, -0.2) -- (0, 0);
+			\draw (2.5, -0.2) -- (2.5, 0);
+			\draw (1.6, -0.2) -- (1.6, 0);
+			\draw node at (-2.5, -0.5) {-5,0};
+			\draw node at (0, -0.5) {0,0};
+			\draw node at (2.5, -0.5) {5,0};
+			\draw node at (1.6, -0.5) {3,0};
+			\draw node at (4, -0.5) {$I$};
+			\draw node at (0.5, 3.5) {$p_i(I)$};
+			\draw[->, very thick] (1.6, 0) -- (1.6, 2);
+			\draw node at (2.1, 2) {$(0, 2)$};
+		\end{tikzpicture}
+
+		Figura 4
+	\end{center}
+\end{figure}
+
+% -------------------------------------------------------------------------------
+
+\section*{Questão 7}
+No canal binário da figura, a v.a. $x_1$ representa os dígitos transmitidos e a v.a. $x_2$ os dígitos recebidos. Os bits recebidos podem estar alterados devido ao ruído no canal.
+
+\begin{figure}[ht]
+	\begin{center}
+		\begin{tikzpicture}
+			\filldraw (0, 0) circle (0.05);
+			\filldraw (4, 0) circle (0.05);
+			\filldraw (4, 2) circle (0.05);
+			\filldraw (0, 2) circle (0.05);
+			\draw (0, 0) -- (4, 0);
+			\draw (4, 0) -- (0, 2);
+			\draw (0, 2) -- (4, 2);
+			\draw (4, 2) -- (0, 0);
+
+			\draw node at (-0.2, -0.2) {$1$}; % 1 (esquerda)
+			\draw node at (4.2, -0.2) {$1$}; % 1 (direita)
+			\draw node at (-0.2, 2.2) {$0$}; % 0 (esquerda)
+			\draw node at (4.2, 2.2) {$0$}; % 0 (direita)
+
+			\draw node at (2, 1.8) {$p$}; %p (cima)
+			\draw node at (2, 0.2) {$p$}; %p (baixo)
+
+			\draw node at (0.5, 0.6) {$1 - p$}; % 1 - p (baixo)
+			\draw node at (0.5, 1.4) {$1 - p$}; % 1 - p (cima)
+
+			\draw node at (-0.5, 1) {$x_1$};
+			\draw node at (4.5, 1) {$x_2$};
+
+		\end{tikzpicture}
+	\end{center}
+\end{figure}
+
+\textbf{a.} Determine os eventos Ax para um vetor aleatório bidimensional que represente este experimento.
+
+\textbf{b.} Encontre a distribuição de probabilidades e a F.D.P conjuntas, considerando que a probabilidade de transmissão de cada um dos dígitos é igual, e que o ruído do canal pode ser caracterizado pelas probabilidades condicionadas mostradas na figura.
+
+\textbf{c.} Encontre a distribuição de probabilidades e a F.D.P de cada v.a.
+
+% -------------------------------------------------------------------------------
+
+\section*{Questão 8}
+Encontre a distribuição de probabilidades marginal $P_x(K)$, sabendo que:
+
+\begin{equation*}
+	P_{xy}(K, L) = 
+	\begin{cases}
+		\frac{2\left[\frac{K}{K + 1}\right]^L}{n(n + 1)} & K = 0, 1, \cdots, n - 1; L \geq 0\\
+		0 \hspace{1cm}                                   & \text{Caso contrário} 
+	\end{cases}
+\end{equation*}
+
+Observação
+
+\[
+	P_x(X_i) = 	\sum_{j} P_{xy}(X_i, Y_j), \hspace{0.5cm}
+	P_y(Y_j) =  \sum_{i} P_{xy}(X_i, Y_j)
+\]
+
+% -------------------------------------------------------------------------------
+
+\section*{Questão 9}
+Dois usuários A e B solicitam serviços a um determinado provedor. Considere que as v.a.'s $x$ e $y$ caracterizam, respectivamente, os tempos (em segundos)necessários para a execução dos serviços solicitados pelos usuários A e B.
+Suponha que a densidade de probabilidade conjunta das v.a.'s $x$ e $y$ seja dada por:
+
+\[p_{xy}(X, Y) = Ke^{-(3X + 2Y)}u(X)u(Y)\]
+
+Sabe-se que quando um serviço é solicitado ao provedor, a probabilidade de que
+a solicitação venha de A vale $0.6$, valendo, portanto $0.4$ a probabilidade de que ela venha de B.
+
+\textbf{a.} Determine o valor da constante $K$.
+
+
+\textbf{b.} Calcule a probabilidade de que a execução de um serviço solicitado ao provedor requeira um tempo superior a $0.5$ segundos.
+
+
+\textbf{c.} Calcule a probabilidade de que uma solicitação de serviço venha do usuário A sabendo-se que sua execução requer um tempo maior do que $0.5$ segundos.
+
+% -------------------------------------------------------------------------------
+
+\section*{Questão 10}
+Se $x$ é uma variável aleatória normal (gaussiana) com parâmetros $\mu = 10$ e $\sigma^2 = 36$, calcule:
+
+\textbf{a.} $P(x > 5)$
+
+\textbf{b.} $P(4 < x< 16)$
+
+\textbf{c.} $P(x < 8)$
+
+\textbf{d.} $P(x < 20)$
+
+\textbf{e.} $P(x > 16)$
+	
+\end{document}
+
