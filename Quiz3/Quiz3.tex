@@ -9,10 +9,10 @@
 \usepackage{setspace}
 
 \newgeometry{
-	margin=0.7in
+	margin=0.5in
 }
 
-\setstretch{1.25}
+\setstretch{1.5}
 \setlength{\parindent}{0pt}
 \pgfplotsset{compat=1.18}
 
@@ -34,14 +34,184 @@ Considere o lançamento de dois dados e a experiência cujo resultado consiste n
 \textbf{a.}
 Modele com uma v.a. esta soma.
 
+Aqui, o espaço amostra da variável aleatória pode ser dado por:
+
+\[\Omega_x = \left\{2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12\right\}\]
+
+De forma que, possamos, de cada par $f_i\,f_j$ com $i, j = 1, 2, \cdots, 6$ apontar para uma soma $i + j$.
+
+\begin{center}
+	\begin{tikzpicture}
+		\draw (0, 0) ellipse (1 and 2);
+		\draw node at (0, 2.2) {$\Omega$};
+	
+		\draw node (1) at (0, 1.6) {$f_1\,f_1$};
+		\draw node (2) at (0, 0.8) {$f_1\,f_2$};
+		\draw node (3) at (0, 0.0) {$f_1\,f_3$};
+		\draw node (4) at (0, -0.8) {$\vdots$};
+		\draw node (5) at (0, -1.6) {$f_6\,f_6$};
+	
+		\draw (5, 0) ellipse (1 and 2);
+		\draw node at (5, 2.2) {$x$};
+	
+		\draw node (a) at (5, 1.6) {$2$};
+		\draw node (b) at (5, 0.8) {$3$};
+		\draw node (c) at (5, 0.0) {$4$};
+		\draw node (d) at (5, -0.8) {$\vdots$};
+		\draw node (e) at (5, -1.6) {$12$};
+	
+		\draw[->] (1.east) to node[right] {} (a.west);
+		\draw[->] (2.east) to node[right] {} (b.west);
+		\draw[->] (3.east) to node[right] {} (c.west);
+		\draw[->] (5.east) to node[right] {} (e.west);
+		
+	\end{tikzpicture}
+\end{center}
+
 
 \textbf{b.}
 Encontre e esboce sua distribuição de probabilidade.
 
+\begin{center}
+	\begin{tikzpicture}
+		\draw[->, thick] (0, 0) -- (0, 3.5);
+		\draw[->, thick] (0, 0) -- (9, 0);
+
+		\draw node at (0.5, 3.5) {$P(x)$};
+		\draw node at (9, 0.3) {$x$};
+		
+		\draw node at (0.75, -0.4) {$2$};
+		\draw[red, very thick] (0.75, 0) -- (0.75, 0.5);
+		\draw[dashed] (0.75, 0.5) -- (0, 0.5);
+
+		\draw node at (1.5, -0.4) {$3$};
+		\draw[red, very thick] (1.5, 0) -- (1.5, 1);
+		\draw[dashed] (1.5, 1) -- (0, 1);
+
+		\draw node at (2.25, -0.4) {$4$};
+		\draw[red, very thick] (2.25, 0) -- (2.25, 1.5);
+		\draw[dashed] (2.25, 1.5) -- (0, 1.5);
+
+		\draw node at (3, -0.4) {$5$};
+		\draw[red, very thick] (3, 0) -- (3, 2);
+		\draw[dashed] (3, 2) -- (0, 2);
+
+		\draw node at (3.75, -0.4) {$6$};
+		\draw[red, very thick] (3.75, 0) -- (3.75, 2.5);
+		\draw[dashed] (3.75, 2.5) -- (0, 2.5);
+
+		\draw node at (4.5, -0.4) {$7$};
+		\draw[red, very thick] (4.5, 0) -- (4.5, 3);
+		\draw[dashed] (4.5, 3) -- (0, 3);
+
+		\draw node at (5.25, -0.4) {$8$};
+		\draw[red, very thick] (5.25, 0) -- (5.25, 2.5);
+		\draw[dashed] (5.25, 2.5) -- (3.75, 2.5);
+
+		\draw node at (6, -0.4) {$9$};
+		\draw[red, very thick] (6, 0) -- (6, 2);
+		\draw[dashed] (6, 2) -- (3, 2);
+
+		\draw node at (6.75, -0.4) {$10$};
+		\draw[red, very thick] (6.75, 0) -- (6.75, 1.5);
+		\draw[dashed] (6.75, 1.5) -- (2.25, 1.5);
+
+		\draw node at (7.50, -0.4) {$11$};
+		\draw[red, very thick] (7.50, 0) -- (7.50, 1);
+		\draw[dashed] (7.5, 1) -- (1.5, 1);
+
+		\draw node at (8.25, -0.4) {$12$};
+		\draw[red, very thick] (8.25, 0) -- (8.25, 0.5);
+		\draw[dashed] (8.25, 0.5) -- (0.75, 0.5);
+
+		\draw node at (-0.4, 0.5) {$1/36$};
+		\draw node at (-0.4, 1.0) {$2/36$};
+		\draw node at (-0.4, 1.5) {$3/36$};
+		\draw node at (-0.4, 2.0) {$4/36$};
+		\draw node at (-0.4, 2.5) {$5/36$};
+		\draw node at (-0.4, 3.0) {$6/36$};
+
+	\end{tikzpicture}
+\end{center}
 
 \textbf{c.}
 Encontre e esboce a Função Distribuição de Probabilidades (F.D.P.)
 
+Sabemos que:
+
+\[F_x(X) = \sum_i P(x = X_i)u_{-1}(X - X_i)\]
+
+Então,
+\[F_x(X) = P(2)u_{-1}(X - 2) + P(3)u_{-1}(X - 3) + \cdots P(12)u_{-1}(X - 12) =\]
+\[F_x(X) = \frac{1}{36}u_{-1}(X - 2) + \frac{2}{26}u_{-1}(X - 3) + \cdots + \frac{1}{36}u_{-1}(X - 12)\]
+
+Esboçando a Função Distribuição de Probabilidades, temos:
+
+\begin{center}
+	\begin{tikzpicture}
+		
+		\draw[->, thick] (0, 0) -- (0, 7.5);
+		\draw[->, thick] (0, 0) -- (11, 0);
+
+		\draw node at (0, -0.4) {$0$};
+		\draw node at (0.75, -0.4) {$1$};
+		\draw node at (1.5, -0.4) {$2$};
+		\draw node at (2.25, -0.4) {$3$};
+		\draw node at (3, -0.4) {$4$};
+		\draw node at (3.75, -0.4) {$5$};
+		\draw node at (4.5, -0.4) {$6$};
+		\draw node at (5.25, -0.4) {$7$};
+		\draw node at (6, -0.4) {$8$};
+		\draw node at (6.75, -0.4) {$9$};
+		\draw node at (7.5, -0.4) {$10$};
+		\draw node at (8.25, -0.4) {$11$};
+		\draw node at (9, -0.4) {$12$};
+		\draw node at (9.75, -0.4) {$13$};
+
+		\draw node at (0.6, 7.5) {$F_x(X)$};
+		\draw node at (11, -0.4) {$X$};
+
+		\draw[red, very thick] (0, 0) -- (1.5, 0);
+		\draw[red, very thick] (1.5, 0.2) -- (2.25, 0.2);
+		\draw[red, very thick] (2.25, 0.6) -- (3, 0.6);
+		\draw[red, very thick] (3, 1.2) -- (3.75, 1.2);
+		\draw[red, very thick] (3.75, 2) -- (4.5, 2);
+		\draw[red, very thick] (4.5, 3) -- (5.25, 3);
+		\draw[red, very thick] (5.25, 4.2) -- (6, 4.2);
+		\draw[red, very thick] (6, 5.2) -- (6.75, 5.2);
+		\draw[red, very thick] (6.75, 6) -- (7.5, 6);
+		\draw[red, very thick] (7.5, 6.6) -- (8.25, 6.6);
+		\draw[red, very thick] (8.25, 7) -- (9, 7);
+		\draw[red, very thick] (9, 7.2) -- (9.75, 7.2);
+		\draw[red, very thick] (9.75, 0) -- (10.5, 0);
+
+		\draw[dashed] (1.5, 0) -- (1.5, 0.2);
+		\draw[dashed] (2.25, 0) -- (2.25, 0.6);
+		\draw[dashed] (3, 0) -- (3, 1.2);
+		\draw[dashed] (3.75, 0) -- (3.75, 2);
+		\draw[dashed] (4.5, 0) -- (4.5, 3);
+		\draw[dashed] (5.25, 0) -- (5.25, 4.2);
+		\draw[dashed] (6, 0) -- (6, 5.2);
+		\draw[dashed] (6.75, 0) -- (6.75, 6);
+		\draw[dashed] (7.5, 0) -- (7.5, 6.6);
+		\draw[dashed] (8.25, 0) -- (8.25, 7);
+		\draw[dashed] (9, 0) -- (9, 7.2);
+		\draw[dashed] (9.75, 0) -- (9.75, 7.2);
+
+		\draw node at (-0.5, 0.1) {$\frac{1}{36}$};
+		\draw node at (-0.5, 0.6) {$\frac{3}{36}$};
+		\draw node at (-0.5, 1.2) {$\frac{6}{36}$};
+		\draw node at (-0.5, 2) {$\frac{10}{36}$};
+		\draw node at (-0.5, 3) {$\frac{15}{36}$};
+		\draw node at (-0.5, 4.2) {$\frac{21}{36}$};
+		\draw node at (-0.5, 5.2) {$\frac{26}{36}$};
+		\draw node at (-0.5, 6) {$\frac{30}{36}$};
+		\draw node at (-0.5, 6.6) {$\frac{33}{36}$};
+		\draw node at (0.5, 7) {$\frac{35}{36}$};
+		\draw node at (-0.5, 7.2) {$1$};
+
+	\end{tikzpicture}
+\end{center}
 
 \textbf{d.}
 Encontre e esboce a função densidade de probabilidades (f.d.p.)
@@ -106,12 +276,9 @@ Qual a probabilidade de que pelo menos dois não sejam curados?
 % -------------------------------------------------------------------------------
 
 \section*{Questão 5}
-Seja $x$ o número de ensaios necessários para obter o primeiro sucesso quando se realiza
-uma sequência de ensaios de Bernoulli independentes com probabilidade de sucesso
-$p$.
+Seja $x$ o número de ensaios necessários para obter o primeiro sucesso quando se realiza uma sequência de ensaios de Bernoulli independentes com probabilidade de sucesso $p$.
 
 \textbf{a.} Deduza o modelo de distribuição de probabilidades (conhecida como geométrica).
-
 
 \textbf{b.} Mostre que a somatória das probabilidades da distribuição geométrica é igual a 1.
 
