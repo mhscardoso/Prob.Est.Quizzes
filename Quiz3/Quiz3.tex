@@ -52,7 +52,7 @@ De forma que, possamos, de cada par $f_i\,f_j$ com $i, j = 1, 2, \cdots, 6$ apon
 		\draw node (5) at (0, -1.6) {$f_6\,f_6$};
 	
 		\draw (5, 0) ellipse (1 and 2);
-		\draw node at (5, 2.2) {$x$};
+		\draw node at (5, 2.2) {$\Omega_x$};
 	
 		\draw node (a) at (5, 1.6) {$2$};
 		\draw node (b) at (5, 0.8) {$3$};
@@ -77,7 +77,7 @@ Encontre e esboce sua distribuição de probabilidade.
 		\draw[->, thick] (0, 0) -- (0, 3.5);
 		\draw[->, thick] (0, 0) -- (9, 0);
 
-		\draw node at (0.5, 3.5) {$P(x)$};
+		\draw node at (0.6, 3.5) {$P_x(X)$};
 		\draw node at (9, 0.3) {$x$};
 		
 		\draw node at (0.75, -0.4) {$2$};
@@ -143,7 +143,7 @@ Sabemos que:
 
 Então,
 \[F_x(X) = P(2)u_{-1}(X - 2) + P(3)u_{-1}(X - 3) + \cdots P(12)u_{-1}(X - 12) =\]
-\[F_x(X) = \frac{1}{36}u_{-1}(X - 2) + \frac{2}{26}u_{-1}(X - 3) + \cdots + \frac{1}{36}u_{-1}(X - 12)\]
+\[F_x(X) = \frac{1}{36}u_{-1}(X - 2) + \frac{2}{36}u_{-1}(X - 3) + \cdots + \frac{1}{36}u_{-1}(X - 12)\]
 
 Esboçando a Função Distribuição de Probabilidades, temos:
 
@@ -183,7 +183,7 @@ Esboçando a Função Distribuição de Probabilidades, temos:
 		\draw[red, very thick] (7.5, 6.6) -- (8.25, 6.6);
 		\draw[red, very thick] (8.25, 7) -- (9, 7);
 		\draw[red, very thick] (9, 7.2) -- (9.75, 7.2);
-		\draw[red, very thick] (9.75, 0) -- (10.5, 0);
+		\draw[red, very thick] (9.75, 7.2) -- (10.5, 7.2);
 
 		\draw[dashed] (1.5, 0) -- (1.5, 0.2);
 		\draw[dashed] (2.25, 0) -- (2.25, 0.6);
@@ -196,7 +196,7 @@ Esboçando a Função Distribuição de Probabilidades, temos:
 		\draw[dashed] (7.5, 0) -- (7.5, 6.6);
 		\draw[dashed] (8.25, 0) -- (8.25, 7);
 		\draw[dashed] (9, 0) -- (9, 7.2);
-		\draw[dashed] (9.75, 0) -- (9.75, 7.2);
+		\draw[dashed] (10.5, 0) -- (10.5, 7.2);
 
 		\draw node at (-0.5, 0.1) {$\frac{1}{36}$};
 		\draw node at (-0.5, 0.6) {$\frac{3}{36}$};
@@ -215,6 +215,55 @@ Esboçando a Função Distribuição de Probabilidades, temos:
 
 \textbf{d.}
 Encontre e esboce a função densidade de probabilidades (f.d.p.)
+
+Sabemos que $\displaystyle p_x(X) = \frac{dF_x(X)}{dX}$. Dessa forma, vamos derivar a F.D.P. para obtermos f.d.p.
+
+\[p_x(X) =
+\frac{1}{36} \frac{du(X - 2)}{dX} +
+\frac{2}{36} \frac{du(X - 3)}{dX} +
+\frac{3}{36} \frac{du(X - 4)}{dX} +
+\cdots +
+\frac{1}{36} \frac{du(X - 12)}{dX}
+\]
+
+Assim:
+
+\[
+p_x(X) =
+\frac{1}{36} \delta(2) +
+\frac{2}{36} \delta(3) +
+\frac{3}{36} \delta(4) +
+\cdots +
+\frac{1}{36} \delta(12)
+\]
+
+Esboçando, teremos:
+
+\begin{center}
+	\begin{tikzpicture}
+		
+		\draw[->, thick] (0, 0) -- (0, 7.5);
+		\draw[->, thick] (0, 0) -- (10, 0);
+
+		\draw node at (0, -0.4) {$0$};
+		\draw node at (0.75, -0.4) {$1$};
+		\draw node at (1.5, -0.4) {$2$};
+		\draw node at (2.25, -0.4) {$3$};
+		\draw node at (3, -0.4) {$4$};
+		\draw node at (3.75, -0.4) {$5$};
+		\draw node at (4.5, -0.4) {$6$};
+		\draw node at (5.25, -0.4) {$7$};
+		\draw node at (6, -0.4) {$8$};
+		\draw node at (6.75, -0.4) {$9$};
+		\draw node at (7.5, -0.4) {$10$};
+		\draw node at (8.25, -0.4) {$11$};
+		\draw node at (9, -0.4) {$12$};
+
+		\draw node at (0.6, 7.5) {$p_x(X)$};
+		\draw node at (10, -0.4) {$X$};
+
+	\end{tikzpicture}
+\end{center}
 
 
 \textbf{e.}
@@ -278,7 +327,9 @@ Qual a probabilidade de que pelo menos dois não sejam curados?
 \section*{Questão 5}
 Seja $x$ o número de ensaios necessários para obter o primeiro sucesso quando se realiza uma sequência de ensaios de Bernoulli independentes com probabilidade de sucesso $p$.
 
-\textbf{a.} Deduza o modelo de distribuição de probabilidades (conhecida como geométrica).
+\textbf{a.} Deduza o modelo de distribuição de probabilidades conhecida como
+
+geométrica.
 
 \textbf{b.} Mostre que a somatória das probabilidades da distribuição geométrica é igual a 1.
 
