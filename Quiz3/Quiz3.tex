@@ -370,6 +370,7 @@ uns do outros.
 
 \textbf{a.} Modelar com uma v.a. o número de curados x dentre os 15 pacientes submetidos ao tratamento.
 \[\Omega_x = \left\{0, 1, 2, \cdots, 15\right\}\]
+O $\sigma$-álgebra são todas as combinações possíveis de uma pessoa.
 
 Os sucessos serão os casos descritos em $\Omega_x$.
 
@@ -488,23 +489,28 @@ Então, recriando a figura, teremos
 		\end{tikzpicture}
 	\end{center}
 \end{figure}
+Agora, temos uma figura clara e podemos calcular as áreas nos intervalos em que o problema exige. Precisamos das áreas que comtemplam o fato de estarem entre $X.2$ e $X.8$.
 
-Agora, temos uma função clara para $p_i(I)$ que é dada por:
-\[p_i(I) = 0.16 \cdot \left(\frac{I}{5} + 1\right) \cdot u_{-1}(I + 5) -
-\frac{0.32I}{5}\cdot u_{-1}(I) +
-0.2\delta(I - 3)
-\]
+Na primeira parte do gráfico, este segue a função $p_i(I) = 0.032I + 0.16$.
 
-Dessa forma, podemos calcular a Função Distribuição de Probabilidades, pela integral da equação acima
-\[F_i(I) = \int_{-\infty}^{I} p_i(I)\,dI\]
-\[F_i(I) = 0.16 \cdot \left(\frac{I^2}{10} + I\right) \bigg|_{-5}^{I} \cdot u_{-1}(I + 5) -
-\frac{0.32I^2}{10} \bigg|_{-5}^{I} \cdot u_{-1}(I) +
-0.2 \cdot u_{-1}(I - 3)
-\]
-\[F_i(I) = 0.16 \cdot \left(\frac{I^2}{10} + I + 2.5\right) \cdot u_{-1}(I + 5) -
-\left(\frac{0.32I^2}{10} - 0.8\right) \cdot u_{-1}(I) +
-0.2 \cdot u_{-1}(I - 3)
-\]
+Já, na segunda parte do gráfico, temos uma função da forma $-0.032I + 0.16$.
+
+Por partes, calculemos as áreas dos intervalos:
+
+\begin{align*}
+	\frac{(p_i(-4.8) + p_i(-4.2)) \cdot 0.6}{2} &= 0.0096\\
+	\frac{(p_i(-3.8) + p_i(-3.2)) \cdot 0.6}{2} &= 0.0288\\
+	\frac{(p_i(-2.8) + p_i(-2.2)) \cdot 0.6}{2} &= 0.048\\
+	\frac{(p_i(-1.8) + p_i(-1.2)) \cdot 0.6}{2} &= 0.0672\\
+	\frac{(p_i(-0.8) + p_i(-0.2)) \cdot 0.6}{2} &= 0.0864\\
+	\frac{(p_i( 0.2) + p_i( 0.8)) \cdot 0.6}{2} &= 0.0864\\
+	\frac{(p_i( 1.2) + p_i( 1.8)) \cdot 0.6}{2} &= 0.0672\\
+	\frac{(p_i( 2.2) + p_i( 2.8)) \cdot 0.6}{2} &= 0.048\\
+	\frac{(p_i( 3.2) + p_i( 3.8)) \cdot 0.6}{2} &= 0.0288\\
+	\frac{(p_i( 4.2) + p_i( 4.8)) \cdot 0.6}{2} &= 0.0096
+\end{align*}
+
+Somando os valores, obtemos $0.48$, sendo essa a probabilidade pedida.
 
 % -------------------------------------------------------------------------------
 
@@ -542,6 +548,27 @@ No canal binário da figura, a v.a. $x_1$ representa os dígitos transmitidos e 
 \end{figure}
 
 \textbf{a.} Determine os eventos Ax para um vetor aleatório bidimensional que represente este experimento.
+\begin{align*}
+	A_x =
+	\left\{
+		\begin{bmatrix}
+			0\\
+			0
+		\end{bmatrix},
+		\begin{bmatrix}
+			0\\
+			1
+		\end{bmatrix},
+		\begin{bmatrix}
+			1\\
+			0
+		\end{bmatrix},
+		\begin{bmatrix}
+			1\\
+			1
+		\end{bmatrix}
+	\right\}
+\end{align*}
 
 \textbf{b.} Encontre a distribuição de probabilidades e a F.D.P conjuntas, considerando que a probabilidade de transmissão de cada um dos dígitos é igual, e que o ruído do canal pode ser caracterizado pelas probabilidades condicionadas mostradas na figura.
 
