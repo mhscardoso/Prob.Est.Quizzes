@@ -454,6 +454,58 @@ corrente na entrada do amperímetro seja a mostrada na figura 4.
 	\end{center}
 \end{figure}
 
+É preciso, primeiramente, refazermos a figura acima, sabendo o valor de $p_i(0)$, que não é mostrado. Assim, sabendo que
+
+\[\int_{-\infty}^{\infty} p_i(I)\,di = 1\]
+
+ou, mais convenientemente, que a área do triângulo somada a integral do impulso de amplitude $0.2$ deve ser 1.
+
+\[\frac{10 c}{2} + 0.2 = 1\]
+\[c = 0.16\]
+
+Então, recriando a figura, teremos
+
+\begin{figure}[ht]
+	\begin{center}
+		\begin{tikzpicture}
+			\draw[->] (-3, 0) -- (4, 0);
+			\draw[->] (0, 0) -- (0, 3.5);
+			\draw (-2.5, 0) -- (0, 2.5);
+			\draw (0, 2.5) -- (2.5, 0);
+			\draw (-2.5, -0.2) -- (-2.5, 0);
+			\draw (0, -0.2) -- (0, 0);
+			\draw (2.5, -0.2) -- (2.5, 0);
+			\draw (1.6, -0.2) -- (1.6, 0);
+			\draw node at (-2.5, -0.5) {-5,0};
+			\draw node at (0, -0.5) {0,0};
+			\draw node at (2.5, -0.5) {5,0};
+			\draw node at (1.6, -0.5) {3,0};
+			\draw node at (4, -0.5) {$I$};
+			\draw node at (0.5, 3.5) {$p_i(I)$};
+			\draw[->, very thick] (1.6, 0) -- (1.6, 2);
+			\draw node at (2.1, 2) {$(0, 2)$};
+			\draw node at (0.5, 2.5) {$0.16$};
+		\end{tikzpicture}
+	\end{center}
+\end{figure}
+
+Agora, temos uma função clara para $p_i(I)$ que é dada por:
+\[p_i(I) = 0.16 \cdot \left(\frac{I}{5} + 1\right) \cdot u_{-1}(I + 5) -
+\frac{0.32I}{5}\cdot u_{-1}(I) +
+0.2\delta(I - 3)
+\]
+
+Dessa forma, podemos calcular a Função Distribuição de Probabilidades, pela integral da equação acima
+\[F_i(I) = \int_{-\infty}^{I} p_i(I)\,dI\]
+\[F_i(I) = 0.16 \cdot \left(\frac{I^2}{10} + I\right) \bigg|_{-5}^{I} \cdot u_{-1}(I + 5) -
+\frac{0.32I^2}{10} \bigg|_{-5}^{I} \cdot u_{-1}(I) +
+0.2 \cdot u_{-1}(I - 3)
+\]
+\[F_i(I) = 0.16 \cdot \left(\frac{I^2}{10} + I + 2.5\right) \cdot u_{-1}(I + 5) -
+\left(\frac{0.32I^2}{10} - 0.8\right) \cdot u_{-1}(I) +
+0.2 \cdot u_{-1}(I - 3)
+\]
+
 % -------------------------------------------------------------------------------
 
 \section*{Questão 7}
