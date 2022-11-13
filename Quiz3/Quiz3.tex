@@ -548,27 +548,72 @@ No canal binário da figura, a v.a. $x_1$ representa os dígitos transmitidos e 
 \end{figure}
 
 \textbf{a.} Determine os eventos Ax para um vetor aleatório bidimensional que represente este experimento.
+
+Vamos fazer um simples gráfico, representando o problema:
+
+\begin{center}
+	\begin{tikzpicture}
+		\draw[->, thick] (-0.5, 0) -- (1.5, 0);
+		\draw[->, thick] (0, -0.5) -- (0, 1.5);
+
+		\filldraw (0, 0) circle (0.05);
+		\filldraw (0, 1) circle (0.05);
+		\filldraw (1, 0) circle (0.05);
+		\filldraw (1, 1) circle (0.05);
+
+		\draw node at (-0.3, -0.3) {$0$};
+		\draw node at (-0.3, 1) {$1$};
+		\draw node at (1, -0.3) {$1$};
+		\draw node at (1.3, 1.3) {$(1, 1)$};
+
+		\draw node at (1.6, -0.4) {$x_1$};
+		\draw node at (-0.4, 1.6) {$x_2$};
+	\end{tikzpicture}
+\end{center}
+
+Disso, notamos o espaço amostra do problema, dado por quatro vetores:
 \begin{align*}
-	A_x =
-	\left\{
-		\begin{bmatrix}
-			0\\
-			0
-		\end{bmatrix},
-		\begin{bmatrix}
-			0\\
-			1
-		\end{bmatrix},
-		\begin{bmatrix}
-			1\\
-			0
-		\end{bmatrix},
-		\begin{bmatrix}
-			1\\
-			1
-		\end{bmatrix}
+	\Omega = \left\{
+	\begin{bmatrix}
+		0\\
+		0
+	\end{bmatrix},
+	\begin{bmatrix}
+		0\\
+		1
+	\end{bmatrix},
+	\begin{bmatrix}
+		1\\
+		0
+	\end{bmatrix},
+	\begin{bmatrix}
+		1\\
+		1
+	\end{bmatrix}
 	\right\}
 \end{align*}
+
+Seja $R_1$ a região que contempla a condição $x_1 < 0 \text{ ou } x_2 < 0$.
+
+Seja $R_2$ a região que contempla a condição $0 \leq x_1 < 1 \text{ e } 0 \leq x_2 < 1$.
+
+Seja $R_3$ a região que contempla a condição $0 \leq x_1 < 1 \text{ e } x_2 \geq 1$.
+
+Seja $R_4$ a região que contempla a condição $x_1 \geq 1 \text{ e } 0 \leq x_2 < 1$.
+
+Seja $R_5$ a região que contempla a condição $x_1 \geq 1 \text{ e } x_2 \geq 1$.
+
+Aqui, definimos uma álgebra de eventos $A_x$:
+\begin{equation*}
+	A_x =
+	\begin{cases}
+		\{ \emptyset \} 	& X \in R_1\\
+		\{(0, 0)\} 			& X \in R_2\\
+		\{(0, 0), (0, 1)\}	& X \in R_3\\
+		\{(0, 0), (1, 0)\}	& X \in R_4\\
+		\Omega				& X \in R_5
+	\end{cases}
+\end{equation*}
 
 \textbf{b.} Encontre a distribuição de probabilidades e a F.D.P conjuntas, considerando que a probabilidade de transmissão de cada um dos dígitos é igual, e que o ruído do canal pode ser caracterizado pelas probabilidades condicionadas mostradas na figura.
 
