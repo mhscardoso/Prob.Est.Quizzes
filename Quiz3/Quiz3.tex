@@ -566,8 +566,8 @@ Vamos fazer um simples gráfico, representando o problema:
 		\draw node at (1, -0.3) {$1$};
 		\draw node at (1.3, 1.3) {$(1, 1)$};
 
-		\draw node at (1.6, -0.4) {$x_1$};
-		\draw node at (-0.4, 1.6) {$x_2$};
+		\draw node at (1.6, -0.4) {$X_1$};
+		\draw node at (-0.4, 1.6) {$X_2$};
 	\end{tikzpicture}
 \end{center}
 
@@ -593,25 +593,24 @@ Disso, notamos o espaço amostra do problema, dado por quatro vetores:
 	\right\}
 \end{align*}
 
-Seja $R_1$ a região que contempla a condição $x_1 < 0 \text{ ou } x_2 < 0$.
+Seja $R_1$ a região que contempla a condição $X_1 < 0 \text{ ou } X_2 < 0$.
 
-Seja $R_2$ a região que contempla a condição $0 \leq x_1 < 1 \text{ e } 0 \leq x_2 < 1$.
+Seja $R_2$ a região que contempla a condição $0 \leq X_1 < 1 \text{ e } 0 \leq X_2 < 1$.
 
-Seja $R_3$ a região que contempla a condição $0 \leq x_1 < 1 \text{ e } x_2 \geq 1$.
+Seja $R_3$ a região que contempla a condição $0 \leq X_1 < 1 \text{ e } X_2 \geq 1$.
 
-Seja $R_4$ a região que contempla a condição $x_1 \geq 1 \text{ e } 0 \leq x_2 < 1$.
+Seja $R_4$ a região que contempla a condição $X_1 \geq 1 \text{ e } 0 \leq X_2 < 1$.
 
-Seja $R_5$ a região que contempla a condição $x_1 \geq 1 \text{ e } x_2 \geq 1$.
+Seja $R_5$ a região que contempla a condição $X_1 \geq 1 \text{ e } X_2 \geq 1$.
 
 Aqui, definimos uma álgebra de eventos $A_x$:
 \begin{equation*}
 	A_x =
 	\begin{cases}
-		\{ \emptyset \} 	& X \in R_1\\
-		\{(0, 0)\} 			& X \in R_2\\
-		\{(0, 0), (0, 1)\}	& X \in R_3\\
-		\{(0, 0), (1, 0)\}	& X \in R_4\\
-		\Omega				& X \in R_5
+		\{ \emptyset \} 			& \underline{X} \in R_1\\
+		\{(0, 0)\} 					& \underline{X} \in R_2\\
+		\{(0, 0), (0, 1), (1, 0)\}	& \underline{X} \in R_3 \cup R_4\\
+		\Omega						& \underline{X} \in R_5
 	\end{cases}
 \end{equation*}
 
