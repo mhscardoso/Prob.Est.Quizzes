@@ -27,7 +27,7 @@
     \maketitle \newpage
 
 \section*{Questão 1}
-Considere duas variáveis aleatórias $x$ e $y$ com função densidade de probabilidade conjunta constante e diferente de zero apenas na área hachurada da figura. Determine o valor de $p_{xy}(X, Y)$ na área hachurada de figura. Encontre a função densidade de probabilidade $p_x(X)$ da variável aleatória $x$. Determine a função densidade de probabilidade condicional $p_{x \mid M}(X)$ onde $M$ é o evento definido por $M = \{0.4 < y < 0.6\}$.
+\textbf{Considere duas variáveis aleatórias $x$ e $y$ com função densidade de probabilidade conjunta constante e diferente de zero apenas na área hachurada da figura. Determine o valor de $p_{xy}(X, Y)$ na área hachurada de figura. Encontre a função densidade de probabilidade $p_x(X)$ da variável aleatória $x$. Determine a função densidade de probabilidade condicional $p_{x \mid M}(X)$ onde $M$ é o evento definido por $M = \{0.4 < y < 0.6\}$.}
 
 \begin{center}
     \begin{tikzpicture}
@@ -49,24 +49,171 @@ Considere duas variáveis aleatórias $x$ e $y$ com função densidade de probab
     \end{tikzpicture}
 \end{center}
 
+Sendo a probabilidade conjunta uma constante, chamemos de $k$. Assim:
+\[p_{xy}(X, Y) = k\]
+Disso, vem:
+\begin{align*}
+    \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} p_{xy}(X, Y) \, dX dY &= 1 \\
+    \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} k \, dX dY &= 1 \\
+    \int_{-1}^{0} \int_{0}^{X + 1} k \, dY dX + \int_{0}^{1} \int_{0}^{-X + 1} k \, dY dX &= 1 \\
+    \int_{-1}^{0} (X + 1)k \, dX + \int_{0}^{1} (-X + 1) k \, dX &= 1 \\
+    k \left[\frac{X^2}{2} + X\right]_{-1}^{0} + k \left[\frac{-X^2}{2} + X\right]_{0}^{1} &= 1 \\
+\end{align*}
+\begin{align*}    
+    k \left[\frac{1}{2} + \frac{1}{2}\right] &= 1 \\
+    k = 1\\
+    \boxed{p_{xy}(X, Y) = 1}
+\end{align*}
+
+Sigamos para o cálculo de $p_x(X)$ da área hachurada.
+\begin{align*}
+    p_x(X) = \int_{-\infty}^{\infty} p_{xy}(X, Y) \, dY \\
+    \boxed{
+    p_x(X) =
+    \begin{cases}
+        \int_{0}^{X + 1} 1 \, dY = X + 1 & -1 \leq X \leq 0 \\
+        \int_{0}^{-X + 1} 1 \, dY = -X + 1 & 0 < X \leq 1
+    \end{cases}
+    }
+\end{align*}
+
+Agora, calculemos $p_{x \mid M}(X)$.
+
+Antes, vejamos $p_y(Y)$
+\begin{align*}
+    p_y(Y) &= \int_{-\infty}^{\infty} p_{xy}(X, Y) \, dX \\
+    p_y(Y) &= \int_{Y - 1}^{0} 1 \, dX + \int_{0}^{-Y + 1} 1 \, dX \,\,\,\,\,\,\, 0 \leq Y \leq 1 \\
+    p_y(Y) &= (-Y + 1) + (-Y + 1) \\
+    p_y(Y) &= 2(-Y + 1) \,\,\,\,\,\,\, 0 \leq Y \leq 1
+\end{align*}
+
+Dessa forma, podemos calcular $P(M)$.
+\begin{align*}
+    P(0.4 < Y < 0.6) &= 2\int_{0.4}^{0.6} (-Y + 1) \, dY \\
+    P(0.4 < Y < 0.6) &= 2 \left[-\frac{Y^2}{2} + Y\right]_{0.4}^{0.6} \\
+    P(0.4 < Y < 0.6) &= 2 \left[-\frac{0.6^2}{2} + 0.6 - \left(-\frac{0.4^2}{2} + 0.4\right)\right] \\
+    P(0.4 < Y < 0.6) &= 2 \left[0.1\right]
+\end{align*}
+\begin{align*}
+    P(0.4 < Y < 0.6) = 0.2
+\end{align*}
+
+Sigamos, pois para o cálculo de $P(x \leq X, M)$. Perceba, que, aqui queremos a interseção, sendo representado pela figura abaixo.
+\begin{center}
+    \begin{tikzpicture}
+        \draw[->, thick] (-2.5, 0) -- (2.5, 0);
+        \draw[->, thick] (0, -0.2) -- (0, 2.5);
+        \draw node at (2.5, -0.4) {$X$};
+        \draw node at (0.4, 2.5) {$Y$};
+
+        \draw (-2, 0) -- (0, 2) -- (2, 0);
+
+        \draw node at (-2, -0.4) {$-1$};
+        \draw node at (2, -0.4) {$1$};
+        \draw node at (0.4, 2) {$1$};
+        \draw node at (0, -0.4) {$0$};
+
+        \draw (-1.5, 1.2) -- (1.5, 1.2);
+        \draw (-1.5, 0.8) -- (1.5, 0.8);
+
+        \draw node at (1.9, 1.2) {$0.6$};
+        \draw node at (1.9, 0.8) {$0.4$};
+
+        \draw node at (-1.2, -0.4) {\tiny{$-0.6$}};
+        \draw node at (-0.8, -0.22) {\tiny{$-0.4$}};
+        \draw node at (0.8, -0.4) {\tiny{$0.4$}};
+        \draw node at (1.2, -0.4) {\tiny{$0.6$}};
+
+        \filldraw[red!40!white, draw=red, opacity=0.6] (-1.2, 0.8) -- (-0.8, 0.8) -- (-0.8, 1.2);
+        \filldraw[green!40!white, draw=green, opacity=0.6] (-0.8, 0.8) -- (-0.8, 1.2) -- (0.8, 1.2) -- (0.8, 0.8);
+        \filldraw[violet!40!white, draw=violet, opacity=0.6] (1.2, 0.8) -- (0.8, 0.8) -- (0.8, 1.2);
+
+        \draw[dashed] (-1.2, 0.8) -- (-1.2, -0.2);
+        \draw[dashed] (-0.8, 0.8) -- (-0.8, -0.2);
+        \draw[dashed] (0.8, 0.8) -- (0.8, -0.2);
+        \draw[dashed] (1.2, 0.8) -- (1.2, -0.2);
+
+        \draw[thick] (-2, 0) -- (-2, -0.2);
+        \draw[thick] (2, 0) -- (2, -0.2);
+        \draw[thick] (0, 2) -- (0.2, 2);
+    \end{tikzpicture}
+\end{center}
+
+Vamos então, analisar por região destacada.
+\begin{align*}
+    P(x \leq X, M) =
+    \begin{cases}
+        0 & X < -0.6\\
+        \frac{(X + 0.6)^2}{2} & -0.6 \leq X \leq -0.4\\
+        \frac{0.2^2}{2} + (X + 0.4) \cdot 0.2 = 0.1 + 0.2X & -0.4 < X \leq 0.4\\
+        0.18 + \frac{(0.8 - X) \cdot (X - 0.4)}{2} = 0.2 - \frac{(X - 0.6)^2}{2} & 0.4 < X \leq 0.6\\
+        0.2 & X > 0.6
+    \end{cases}
+\end{align*}
+
+Sabemos que
+\[p_{x \mid M}(X) = \frac{\frac{d}{dx}P(x \leq X)}{P(M)}\]
+Calculando $\frac{d}{dX}P(x \leq X, M)$, chegamos em
+\begin{align*}
+    \frac{d}{dX}P(x \leq X, M) =
+    \begin{cases}
+        0 & X < -0.6\\
+        X + 0.6 & -0.6 \leq X \leq -0.4\\
+        0.2 & -0.4 < X \leq 0.4\\
+        0.6 - X & 0.4 < X \leq 0.6\\
+        0 & X > 0.6
+    \end{cases}
+\end{align*}\
+
+Finalmente
+\begin{align*}
+    \boxed{
+    p_{x \mid M}(X) =
+    \begin{cases}
+        0 & X < -0.6\\
+        5X + 3 & -0.6 \leq X \leq -0.4\\
+        1 & -0.4 < X \leq 0.4\\
+        3 - 5X & 0.4 < X \leq 0.6\\
+        0 & X > 0.6
+    \end{cases}
+    }
+\end{align*}
+
 \section*{Questão 2}
-Uma régua de comprimento unitário é quebrada em um ponto aleatório. O pedaço da esquerda é novamente quebrado. Seja $x$ a variável aleatória que define, a partir da extremidade esquerda da régua, o ponto em que a régua é quebrada pela primeira vez e $y$ a variável aleatória que define o segundo ponto de quebra. Determine $p_x(X), p_y(Y), p_{y \mid x = X}(Y), p_{x \mid y = Y}(X)$. Calcule a probabilidade de que um triangulo possa ser formado com as três peças obtidas. Lembre-se de que, num triangulo, o comprimento de qualquer um dos lados é menor que a soma dos comprimentos dos outros dois lados.
+\textbf{Uma régua de comprimento unitário é quebrada em um ponto\\ aleatório. O pedaço da esquerda é novamente quebrado. Seja $x$ a variável aleatória que define, a partir da extremidade esquerda da régua, o ponto em que a régua é quebrada pela primeira vez e $y$ a variável aleatória que define o segundo ponto de quebra. Determine}
+\[p_x(X), p_y(Y), p_{y \mid x = X}(Y), p_{x \mid y = Y}(X)\]
+\textbf{Calcule a probabilidade de que um triangulo possa ser formado com as três peças obtidas. Lembre-se de que, num triangulo, o comprimento de qualquer um dos lados é menor que a soma dos comprimentos dos outros dois lados.}
+
+O cálculo de $p_x(X)$ é bem simples. Tendo uma régua unitária, sua densidade de probabilidade é:
+\begin{center}
+    \begin{tikzpicture}
+        \draw[->, thick] (0, -0.4) -- (0, 1.5);
+        \draw[->, thick] (-0.4, 0) -- (1.5, 0);
+
+        \draw node at (-0.2, -0.2) {$0$};
+        \draw node at (1, -0.2) {$1$};
+        \draw node at (1.5, -0.4) {$X$};
+        \draw node at (0.7, 1.5) {$p_x(X)$};
+        \draw node at (-0.2, 1) {$1$};
+
+        \draw (0, 1) -- (1, 1) -- (1, 0);
+    \end{tikzpicture}
+\end{center}
+\[p_x(X) = 1; 0 \geq X \geq 1\]
+
+Podemos pensar, agora na probabilidade conjunta, criando um gráfico com Y em função de X.
 
 
 \section*{Questão 3}
-Um equipamento pode se encontrar em um dentre dois estados possíveis:
 
-operação normal e operação anormal. 
-
-A probabilidade de o equipamento encontra-se em operação normal é $0.8$. Ligado a este equipamento tem-se um painel de controle onde um termômetro com escala em graus Celsius indica a temperatura do equipamento a cada instante. Considere que a indicação do termômetro é uma variável aleatória $t$ cuja função densidade de probabilidade depende do estado em que o equipamento se encontra. Se o equipamento está em operação normal $(N)$, tem-se
-
+\textbf{Um equipamento pode se encontrar em um dentre dois estados\\ possíveis: operação normal e operação anormal.
+A probabilidade de o equipamento encontra-se em operação normal é $0.8$. Ligado a este equipamento tem-se um painel de controle onde um termômetro com escala em graus Celsius indica a temperatura do equipamento a cada instante. Considere que a indicação do termômetro é uma variável aleatória $t$ cuja função densidade de probabilidade depende do estado em que o equipamento se encontra. Se o equipamento está em operação normal $(N)$, tem-se}
 \[p_{t \mid N}(T) = \frac{1}{10\sqrt{2\pi}} e^{-\frac{(T - 30)^2}{200}}\]
 
-Por outro lado, se o equipamento está em operação anormal $(\overline{N})$, tem-se
-
+\textbf{Por outro lado, se o equipamento está em operação anormal $(\overline{N})$, tem-se}
 \[p_{t \mid \overline{N}}(T) = \frac{1}{10\sqrt{2\pi}} e^{-\frac{(T - 50)^2}{200}}\]
 
-Determine a probabilidade de que a indicação do termômetro exceda 40 graus Celsius.
+\textbf{Determine a probabilidade de que a indicação do termômetro exceda 40 graus Celsius.
 Determine a probabilidade de que a operação seja normal dado que a indicação do
 termômetro está compreendida entre 40 e 50 graus Celsius. 
 Suponha que se resolve decidir a respeito do estado do equipamento (operação normal ou anormal) a partir da
@@ -75,10 +222,10 @@ Se $t < T_0$ decide-se por operação normal\\
 Se $t \geq T_0$ decide-se por operação anormal.\\
 Calcule a probabilidade de se cometer um erro quando se usa este critério de decisão com
 $T_0 = 45$. Calcule o menor valor de $T_0$ tal que a probabilidade de se decidir por operação
-anormal quando a operação é normal não excede $0.0075$.
+anormal quando a operação é normal não excede $0.0075$.}
 
 \section*{Questão 4}
-Deseja-se encontrar a função de densidade de probabilidade da v.a. $y = ax^2, (a > 0)$, onde $x$ é uma v.a. dupla exponencial de parâmetro $b$:
+\textbf{Deseja-se encontrar a função de densidade de probabilidade da v.a. $y = ax^2, (a > 0)$, onde $x$ é uma v.a. dupla exponencial de parâmetro $b$:}
 
 \[p_x(X) = \frac{b}{2e^{-b|X|}}\]
 

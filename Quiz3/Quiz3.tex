@@ -718,8 +718,34 @@ Sabemos que a integral dupla da função densidade de probabilidade deve ser 1, 
 
 \textbf{b.} Calcule a probabilidade de que a execução de um serviço solicitado ao provedor requeira um tempo superior a $0.5$ segundos.
 
+Calculemos as probabilidades marginais $p_x(X)$ e $p_y(Y)$.
+\begin{align*}
+	p_x(X) &= \int_{-\infty}^{\infty} p_{xy}(X, Y) \, dY\\
+	p_x(X) &= \int_{0}^{\infty} 6e^{-(3X + 2Y)}u(X)u(Y) \, dY\\
+	p_x(X) &= 6e^{-3X}u(X)\int_{0}^{\infty} e^{-2Y}u(Y) \, dY\\
+	p_x(X) &= 6e^{-3X}u(X)\left[-\frac{e^{-2Y}}{2}\right]_{0}^{\infty}\\
+	p_x(X) &= 6e^{-3X}u(X) \left[0 - \left(-\frac{1}{2}\right)\right]\\
+	p_x(X) &= 3e^{-3X}u(X)
+\end{align*}
 
+Fazendo o mesmo processo para encontrar $p_y(Y)$, encontramos:
+\[p_y(Y) = 2e^{-2Y}u(Y)\]
 
+Assim, para que o provedor A realize o processo em um tempo superior a 0.5 segundos, fazemos a área deste gráfico:
+\begin{align*}
+	P_x(X > 0.5) &= \int_{0.5}^{\infty} p_x(X) \, dX\\
+	P_x(X > 0.5) &= \int_{0.5}^{\infty} 3e^{-3X}u(X) \, dX\\
+	P_x(X > 0.5) &= \left[-e^{-3X}\right]_{0.5}^{\infty}\\
+	P_x(X > 0.5) &= \left[0 - (-e^{-\frac{3}{2}})\right]\\
+	P_x(X > 0.5) &= e^{-\frac{3}{2}}
+\end{align*}
+
+Realizando o mesmo processo para $p_y(Y)$, chegamos em:
+\[P_y(Y > 0.5) = e^{-1}\]
+
+Portanto, devemos somar a probabilidade do provedor A ser chamado, durando mais que 0.5 segundos com a do provedor B ser chamado durando mais que 0.5 segundos. Finalmnte, temos:
+\[P(T > 0.5) = 0.6 \cdot P_x(X > 0.5) + 0.4 \cdot P_y(Y > 0.5)\]
+\[P(T > 0.5) = 0.6 \cdot e^{-\frac{3}{2}} + 0.4 \cdot e^{-1}\]
 
 \textbf{c.} Calcule a probabilidade de que uma solicitação de serviço venha do usuário A sabendo-se que sua execução requer um tempo maior do que $0.5$ segundos.
 
