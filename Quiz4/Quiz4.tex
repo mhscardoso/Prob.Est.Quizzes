@@ -201,7 +201,47 @@ O cálculo de $p_x(X)$ é bem simples. Tendo uma régua unitária, sua densidade
 \end{center}
 \[p_x(X) = 1; 0 \geq X \geq 1\]
 
-Podemos pensar, agora na probabilidade conjunta, criando um gráfico com Y em função de X.
+Agora, também podemos representar $p_{y \mid x = X}(Y)$.
+\begin{center}
+    \begin{tikzpicture}
+        \draw[->, thick] (0, -0.4) -- (0, 2);
+        \draw[->, thick] (-0.4, 0) -- (2, 0);
+
+        \draw node at (-0.2, -0.2) {$0$};
+        \draw node at (1.5, -0.2) {$X$};
+        \draw node at (2, -0.4) {$Y$};
+        \draw node at (1, 2) {$p_{y \mid x = X}(Y)$};
+        \draw node at (-0.2, 1) {$\frac{1}{X}$};
+
+        \draw (0, 1) -- (1.5, 1) -- (1.5, 0);
+    \end{tikzpicture}
+\end{center}
+
+Agora, podemos calcular $p_y(Y)$.
+\begin{align*}
+    p_{y \mid x = X}(Y) = \frac{p_{xy}(X, Y)}{p_y(Y)}\\
+    p_{xy}(X, Y) = \frac{1}{X}\\
+    p_y(Y) = \int_{-\infty}^{\infty} p_{xy}(X, Y) \, dX\\
+    p_y(Y) = \int_{-\infty}^{\infty} \frac{1}{X} \, dX\\
+    p_y(Y) = \int_{y}^{1} \frac{1}{X} \, dX\\
+    p_y(Y) = 0 - \ln (Y)\\
+    p_y(Y) = -\ln(Y)
+\end{align*}
+
+E agora, $p_{y \mid x = X}(X) = \frac{p_{xy}(X, Y)}{p_x(X)}$.
+\begin{align*}
+    p_{y \mid x = X}(X) = \frac{p_{xy}(X, Y)}{p_x(X)}\\
+    p_{y \mid x = X}(X) = \frac{1}{X}/(-\ln(Y))\\
+    p_{y \mid x = X}(X) = -\frac{1}{X\ln(Y)}, 0 < Y < X < 1
+\end{align*}
+
+Seja $P$ a probabilidade de se formar um triângulo, ela é dada por:
+\begin{align*}
+    P = \int_R p_{xy}(X, Y) \, dR = \int_{0.5}^{1} \int_{X - 0.5}^{0.5} \frac{1}{X} dYdX\\
+    P = \int_{0.5}^{1} \frac{1}{X}[-X + 1] dX\\
+    P = -0.5 - \ln(0.5)\\
+    P \approx 0.1931
+\end{align*}
 
 
 \section*{Questão 3}
@@ -224,9 +264,120 @@ Calcule a probabilidade de se cometer um erro quando se usa este critério de de
 $T_0 = 45$. Calcule o menor valor de $T_0$ tal que a probabilidade de se decidir por operação
 anormal quando a operação é normal não excede $0.0075$.}
 
+A probabilidade que queremos é:
+\begin{align*}
+    P(t > 40) &= P(t > 40, N) + P(t > 40, \overline{N})\\
+    P(t > 40) &= 0.8 \cdot P_{t \mid N}(T > 40) + 0.2 \cdot P_{t \mid \overline{N}}(T > 40)
+\end{align*}
+
+A primeira, ($P_{t \mid N}(T > 40)$), possui desvio padrão de 10 com média 30. Dessa forma, a probabilidade de que a temperatura exceda 30 graus Celsius, é de 50\%.
+
+Para que ela fique entre 20 e 40 graus (a um desvio padrão), aproximamos para 68\%. Sendo simétrica, dividimos por 2 para obter a probabilidade de que a temperatura esteja entre 30 e 40 graus Celsius, sendo de aproximadamente 34\%. Diminuindo o primeiro dado do segundo, temos que a probabilidade de que a temperatura exceda 40 graus é de $(50 - 34)\% = 16\%$
+\[P_{t \mid N}(T > 40) = 0.16\]
+
+Para a segunda, ($P_{t \mid \overline{N}}$), temos uma média de 50, com um desvio padrão de 10. Pela lógica da primeira, devemos agora somar aos 50\% os 34\%, que é metade da probabilidade contida em um desvio padrão, tendo $(50 + 34)\% = 84\%$.
+\[P_{t \mid \overline{N}}(T > 40) = 0.84\]
+
+Aplicando aqui, temos:
+\begin{align*}
+    P(t > 40) &= 0.8 \cdot P_{t \mid N}(T > 40) + 0.2 \cdot P_{t \mid \overline{N}}(T > 40)\\
+    P(t > 40) &= 0.8 \cdot 0.16 + 0.2 \cdot 0.84
+\end{align*}
+\[\boxed{P(t > 40) = 0.296}\]
+
+Agora, queremos $P(N \mid 40 < T < 50)$. Pelo teorema de Bayes, temos que:
+\begin{align*}
+    P(N \mid 40 < T < 50) = \frac{P(N, 40 < T < 50)}{P(40 < T < 50)}
+\end{align*}
+Sabemos, porém, que:
+\[P(N, 40 < T < 50) = P(40 < T < 50 \mid N) \cdot P(N)\]
+
+Então
+\begin{align*}
+    P(N \mid 40 < T < 50) = \frac{P(40 < T < 50 \mid N) \cdot P(N)}{P(40 < T < 50)}
+\end{align*}
+
+Agora, nos resta calcular o que podemos:
+
+Para, $P(40 < T < 50)$, podemos utilizar a lógica da primeira parte, obtendo que
+\[P(40 < T < 50) = 0.8 \cdot P_{t \mid N}(40 < T < 50) + 0.2 \cdot P_{t \mid \overline{N}}(40 < T < 50)\]
+
+No primeiro ($P_{t \mid N}(40 < T < 50)$), queremos metade da probabilidade de estar no intervalo entre o primeiro e segundo desvio padrão. Então ($\frac{95 - 68}{2}\% = 13.5\%$).
+
+No segundo, ($P_{t \mid \overline{N}}(40 < T < 50)$), queremos metade da probabilidade de que se esteja no intervalo do primeiro desvio padrão. Então ($\frac{68}{2}\% = 34\%$)
+
+Assim,
+\begin{align*}
+    P_{t \mid N}(40 < T < 50) &= 0.135\\
+    P_{t \mid \overline{N}}(40 < T < 50) &= 0.34
+\end{align*}
+\begin{align*}
+    P(40 < T < 50) &= 0.8 \cdot P_{t \mid N}(40 < T < 50) + 0.2 \cdot P_{t \mid \overline{N}}(40 < T < 50)\\
+    P(40 < T < 50) &= 0.8 \cdot 0.135 + 0.2 \cdot 0.34
+\end{align*}
+\[\boxed{P(40 < T < 50) = 0.176}\]
+
+Os outros, ou já calculamos, ou temos:
+\begin{align*}
+    P(40 < T < 50 \mid N) &= 0.135\\
+    P(N) &= 0.8
+\end{align*}
+
+Finalmente
+\[P(N \mid 40 < T < 50) = \frac{P(40 < T < 50 \mid N) \cdot P(N)}{P(40 < T < 50)}\]
+\[P(N \mid 40 < T < 50) = \frac{0.135 \cdot 0.8}{0.176} = 0.614\]
+\[\boxed{P(N \mid 40 < T < 50) = 0.614}\]
+
+Agora, queremos a probabilidade de que a temperatura seja menor que 45 graus, sendo anormal ou de que seja maior ou igual a 45 graus sendo normal.
+
+No primeiro caso, veremos o valor para a função erro:
+\[\frac{45 - 30}{10} = 1.5\]
+
+No segundo:
+\[\frac{45 - 50}{10} = -0.5\]
+
+Assim
+\begin{align*}
+    P(Erro) &= P(N) \cdot P_{t \mid N}(t \geq 45) + P(\overline{N}) \cdot P_{t \mid \overline{N}}(t < 45)\\
+    P(Erro) &= 0.8 \cdot (1 - erf(1.5)) + 0.2 \cdot erf(-0.5)\\
+    \boxed{P(Erro) = 0.115}
+\end{align*}
+
+Finalmente, precisamos da temperatura $T_0$ para que o erro seja o dado no enunciado. Para isso, fazemos:
+\begin{align*}
+    0.8 \cdot p_{t \mid N}(t \geq T_0) < 0.0075\\
+    \int_{T_0}^{\infty} p_{t \mid N} \, dt < 0.009375\\
+    \left[\frac{1}{2} - erf(\frac{T_0 - 30}{10})\right] < 0.009375\\
+    erf\left(\frac{T_0 - 30}{10}\right) > 0.490625\\
+    erf\left(\frac{T_0 - 30}{10}\right) > erf(2.35)\\
+    \frac{T_0 - 30}{10} > 2.35\\
+    \boxed{T_0 > 53.5}\\
+\end{align*}
+
 \section*{Questão 4}
 \textbf{Deseja-se encontrar a função de densidade de probabilidade da v.a. $y = ax^2, (a > 0)$, onde $x$ é uma v.a. dupla exponencial de parâmetro $b$:}
 
-\[p_x(X) = \frac{b}{2e^{-b|X|}}\]
+\[p_x(X) = \frac{b}{2}e^{-b|X|}\]
+
+Vamos calcular a inversa de $f(x) = ax^2$.
+\begin{align*}
+    y &= ax^2\\
+    x &= \pm \sqrt{\frac{y}{a}}
+\end{align*}
+
+E a derivada da função:
+\[y' = (ax^2)'\]
+\[y' = 2ax\]
+
+Agora, podemos calcular $p_y(Y)$.
+\begin{align*}
+    p_y(Y) = \frac{p_x(X)}{|f_1^{'}(X)|}\bigg|_{f_1^{-1}(Y)} \cdot I_{Cf_1(Y)} + \frac{p_x(X)}{|f_2^{'}(X)|}\bigg|_{f_2^{-1}(Y)} \cdot I_{Cf_2(Y)}
+\end{align*}
+
+Lembrando que existem duas regiões pois a função não é biunívoca.
+\begin{align*}
+    p_y(Y) = \left(\frac{be^{-b|X|}}{4\sqrt{ya}} + \frac{be^{-b|X|}}{4\sqrt{ya}}\right) \cdot I_{[0, \infty](Y)}\\
+    \boxed{p_y(Y) = \frac{be^{-b\sqrt{\frac{y}{a}}}}{2\sqrt{ya}} \cdot u_{-1}(Y)}
+\end{align*}
 
 \end{document}
