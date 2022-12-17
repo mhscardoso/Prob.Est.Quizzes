@@ -1,4 +1,4 @@
-\documentclass[a5paper]{report}
+\documentclass[12pt]{report}
 
 \usepackage[utf8]{inputenc}
 \usepackage[brazilian]{babel}
@@ -7,6 +7,7 @@
 \usepackage{amsfonts}
 \usepackage{tikz, pgfplots}
 \usepackage{setspace}
+\usepackage{multirow}
 
 \newgeometry{
 	margin=0.5in
@@ -15,6 +16,10 @@
 \setstretch{1.5}
 \setlength{\parindent}{0pt}
 \pgfplotsset{compat=1.18}
+
+\newenvironment{boldenv}
+  {\bfseries}% \begin{boldenv}
+  {}% \end{boldenv}
 
 \title{Estatística e Modelos Probabilísticos - Quiz 4}
 \author{
@@ -25,4 +30,190 @@
 
 \begin{document}
     \maketitle \newpage
+
+%% Questão 1 -----------------------------------------------------------------------------------------------
+\begin{boldenv}
+(1) Após um bom tempo consegui juntar com o rendimento da poupança ($0.6\%$) um total de $P = 10000$ reais. Pretendo trocar para aplicações cujas taxas de retorno são variáveis aleatórias independentes $x_1 e x_2$, com médias 5\% e 14\% e desvios padrão 1\% e 8\%, respectivamente. Para avaliar o risco da aplicação utilizarei o desvio padrão, $\sigma(R)$, do seu retorno total $R=P_1x_1 + P_2x_2$.
+\end{boldenv}
+
+\begin{boldenv}
+(a) para ter o risco mínimo possível, que quantias $P_1$ e $P_2$ devo investir nas respectivas aplicações? Quais são a média do retorno e o risco correspondentes?
+\end{boldenv}
+
+\begin{boldenv}
+(b) qual é o tamanho do risco que devo correr para obter o mesmo rendimento em reais da poupança? Vale a pena trocar de investimento?
+\end{boldenv}
+
+\begin{boldenv}
+(c) Através da Desigualdade de Chebyshev, obtenha um intervalo simétrico em torno de 770 reais que, com probabilidade superior a 80\%, conterá o retorno $R$ da carteira obtida no item (b).
+\end{boldenv}
+
+
+\vspace{\baselineskip}
+
+%% Questão 2 ----------------------------------------------------------------------------------------------
+\begin{boldenv}
+(2) Na resolução do exercício abaixo foi cometido um erro grave. Pergunta: Sejam $x$ e $y$ duas v.a.'s independentes e tais que $x \sim N (80; 9)$ e $y \sim N (50; 16)$. Qual a distribuição de probabilidade da v.a. $z = x - y$ ?
+
+Resposta:
+\end{boldenv}
+\begin{align*}
+E[z] = E[x - y] = E[x] - E[y] = 80 - 50 = 30\\
+Var(z) = Var(x - y) = Var(x) - Var(y) = 9 - 16 = -7\\
+\text{Conclusão}: z \sim N (30; -7)
+\end{align*}
+
+\begin{boldenv}
+(a) Qual foi o erro cometido aqui?
+\end{boldenv}
+
+\begin{boldenv}
+(b) qual a solução correta
+\end{boldenv}
+
+\vspace{\baselineskip}
+
+%% Questão 3 ---------------------------------------------------------------------------------------------
+\begin{boldenv}
+(3) Considere duas variáveis aleatórias $x$ e $y$ com função densidade de probabilidade conjunta
+\end{boldenv}
+
+\begin{align*}
+    f_{X, Y}(x, y) =
+    \begin{cases}
+        kxy^2 & \text{se } 0 \leq x \leq 1 \text{ e } 0 \leq y \leq 2\text{,}\\
+        0     & \text{caso contrário, }
+    \end{cases}
+\end{align*}
+\begin{boldenv}
+Onde $K$ é uma constante real. Determine $E[X],\, E[Y],\, E[X \mid Y = 1] \text{ e } E[Y \mid X = 0]$.
+\end{boldenv}
+
+\vspace{\baselineskip}
+
+%% Questão 4 ---------------------------------------------------------------------------------------------
+\begin{boldenv}
+(4) A chegada de passageiros a uma paragem de autocarro segue um processo de Poisson com intensidade $\lambda_1$. Seja $T$ o tempo de chegada de um autocarro que é independente do processo de Poisson. Quando $t = 0$ não existem passageiros na paragem. Supondo que $T$ segue uma distribuição exponencial com intensidade $\lambda_2$, calcule o número médio de pessoas na paragem no instante $T$.
+
+Resposta: $\frac{\lambda_1}{\lambda_2}$
+\end{boldenv}
+
+\vspace{\baselineskip}
+
+%% Questão 5 ---------------------------------------------------------------------------------------------
+
+\begin{boldenv}
+(5) Uma concessionária de automóveis vem mantendo semanalmente em estoque 2 carros importados e 3 de fabricação nacional, para atender aos seus clientes. Sejam $x$ e $y$ as variáveis aleatórias que representam respectivamente o número de carros importados e o número de carros nacionais que ela vende ao longo de uma semana. Assim sendo, $x$ pode assumir os valores $0,\,1,\,2$ e $y$ os valores $0,\,1,\,2,\,3$. A função de probabilidade conjunta de $x$ e $y$ é dada pela tabela abaixo:
+\end{boldenv}
+\begin{center}
+    \begin{tabular}{ | c | c | c | c | c | }
+        \hline
+        \multirow{2}{*}{$x$} & \multicolumn{4}{| c |}{$y$}\\ \cline{2-5}
+          & 0 & 1 & 2 & 3\\
+        \hline
+        0 & 0.01 & 0.05 & 0.05 & 0.04\\
+        \hline
+        1 & 0.05 & 0.20 & 0.15 & 0.10\\
+        \hline
+        2 & 0.04 & 0.15 & 0.10 & 0.06\\
+        \hline
+    \end{tabular}
+\end{center}
+
+\begin{boldenv}
+    Qual a probabilidade de que, em uma determinada semana:
+\end{boldenv}
+
+\begin{boldenv}
+    (a) não seja vendido nenhum carro importado?
+\end{boldenv}
+
+\begin{boldenv}
+    (b) todos os carros nacionais sejam vendidos?
+\end{boldenv}
+
+\begin{boldenv}
+    (c) sejam vendidos no máximo um carro importado e um carro nacional?
+\end{boldenv}
+
+\begin{boldenv}
+    (d) sejam vendidos mais carros importados do que nacionais?
+\end{boldenv}
+
+\begin{boldenv}
+    (e) sejam vendidos ao todo pelo menos 4 carros?
+\end{boldenv}
+
+\begin{boldenv}
+    Obtenha:
+\end{boldenv}
+
+\begin{boldenv}
+    (f) as distribuições marginais de $x$ e de $y$.
+\end{boldenv}
+
+\begin{boldenv}
+    (g) as distribuições condicionais de $x$ dado $y$, e de $y$ dado $x$.
+\end{boldenv}
+
+\begin{boldenv}
+    (h) $Cov(x, y)$ e $\rho(x, y)$
+\end{boldenv}
+
+\vspace{\baselineskip}
+
+%% Questão 6 ---------------------------------------------------------------------------------------------
+
+\begin{boldenv}
+    (6) O tempo de vida de um equipamento é uma variável aleatória $x$ com função densidade de probabilidade exponencial de parâmetro $a$, ou seja,
+\end{boldenv}
+\[p_x(X) = ae^{-aX}u(X).\]
+
+\begin{boldenv}
+    Quando o equipamento falha, o tempo necessário para repará-lo pode ser modelado por uma variável aleatória $y$, com função densidade de probabilidade dada por
+\end{boldenv}
+\[p_y(Y) = be^{-bY}u(Y).\]
+
+\begin{boldenv}
+    Seja $z$ a duração total de um ciclo do equipamento, entendendo-se como tal o tempo decorrido desde que o equipamento entra em operação até que ele volte a funcionar depois de ter falhado uma vez, ou seja,
+\end{boldenv}
+\[z = x + y\]
+
+\begin{boldenv}
+    (a) Determine o coeficiente de correlação $\rho_{xz}$ entre as variáveis aleatórias $x$ e $z$.
+\end{boldenv}
+
+\begin{boldenv}
+    (b) Determine a função densidade de probabilidades $\rho_z(Z)$ da variável aleatória $z$. Para isso, lembre-se que
+\end{boldenv}
+\[\frac{1}{(a - jv)(b - jv)} = \frac{1}{b - a} \left(\frac{1}{a - jv} - \frac{1}{b - jv}\right)\]
+
+\begin{boldenv}
+    (c) Calcule, para $a = 1$ e $b = 5$, a probabilidade de que a duração do ciclo exceda 10.
+\end{boldenv}
+
+\begin{boldenv}
+    (d) Determine um limitante superior para a probabilidade calculada no item anterior, utilizando a desigualdade de Tchebyshev.
+\end{boldenv}
+
+\vspace{\baselineskip}
+
+%% Questão 7 ---------------------------------------------------------------------------------------------
+
+\begin{boldenv}
+    (7) Num determinado instante de $t_0$ uma chamada telefônica chega a uma central
+    telefônica e encontra todos os seus $N$ circuitos ocupados. Assim, a chamada não pode
+    ser servida imediatamente e passa a aguardar a liberação de qualquer um dois $N$
+    circuitos. Considere que as durações $x_i$, $i = 1, \cdots , N$ das chamadas que estão utilizando
+    cada um dos $N$ circuitos (medidas a partir de $t_0$ ) são variáveis aleatórias estatisticamente
+    independentes e identicamente distribuídas, com funções de densidade de
+    probabilidade dadas por
+\end{boldenv}
+\[p_{x_i}(X) = e^{-X}u(X); \,\,\,\, i = 1, 2, \cdots, N\]
+
+\begin{boldenv}
+    Determine a espera média da chamada telefônica, ou seja, o intervalo de tempo
+ocorrido desde $t_0$ até o instante em que a chamadas é servida.
+\end{boldenv}
+
 \end{document}
